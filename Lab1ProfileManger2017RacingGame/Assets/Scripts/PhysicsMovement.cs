@@ -26,8 +26,8 @@ public class PhysicsMovement : MonoBehaviour
     public float currentSpeed;
     public float maxSpeed;
 
-    const float ACCELORATION_FACTOR = 20.0f;
-    const float BRAKE_FACTOR = 20.0f;
+    const float ACCELORATION_FACTOR = 15.0f;
+    const float BRAKE_FACTOR = 15.0f;
     const float STEER_FACTOR = 20.0f;
 
 
