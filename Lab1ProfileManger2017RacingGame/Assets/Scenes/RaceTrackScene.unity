@@ -383,6 +383,52 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &751656836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 751656838}
+  - component: {fileID: 751656837}
+  m_Layer: 0
+  m_Name: SaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &751656837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751656836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6b002bff736fd4ab303637cd7de5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveSystem
+  filePath: Assets/Resources/saveData.csv
+  saveDataList: []
+--- !u!4 &751656838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751656836}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.65902, y: 0, z: 4.66331}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +604,7 @@ GameObject:
   - component: {fileID: 2105951720}
   - component: {fileID: 2105951724}
   - component: {fileID: 2105951725}
+  - component: {fileID: 2105951726}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -666,7 +713,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105951719}
   serializedVersion: 5
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -766,10 +813,22 @@ MonoBehaviour:
     m_Flags: 0
   accelorationValue: 0
   brakeValue: 0
-  steervalue: 0
-  decelerationValue: 4
+  steerValue: 0
   currentSpeed: 0
   maxSpeed: 50
+--- !u!114 &2105951726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105951719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe73c23fab0bea49b445d06c59a25c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostDataRecorder
+  ghostData: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -778,3 +837,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1314960165}
   - {fileID: 2105951723}
+  - {fileID: 751656838}
