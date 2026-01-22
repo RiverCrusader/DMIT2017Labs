@@ -2,23 +2,19 @@ using UnityEngine;
 
 public class MountType : MonoBehaviour
 {
-    string mountName;
-    int mountSpeed;
-    int acceloration;
-    int offRoadSpeed;
+    float mountSpeed;
+    float acceloration;
+    float offRoadSpeed;
     bool canJump;
 
-    public MountType(string name_, int speed_, int offRoadSpeed_, int acceloration_, bool canJump_)
+    public MountType(float maxSpeed_, float offRoadSpeed_, float acceloration_, bool canJump_)
     {
-
-        mountName = name_;
-        mountSpeed = speed_;
+        mountSpeed = maxSpeed_;
         offRoadSpeed = offRoadSpeed_;
         acceloration = acceloration_;
         canJump = canJump_;
 
     }
-
 }
 
 

@@ -1695,6 +1695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 751656838}
   - component: {fileID: 751656837}
+  - component: {fileID: 751656839}
   m_Layer: 0
   m_Name: SaveSystem
   m_TagString: Untagged
@@ -1709,7 +1710,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751656836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea6b002bff736fd4ab303637cd7de5ab, type: 3}
   m_Name: 
@@ -1731,6 +1732,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &751656839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751656836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf7122c115bb9e43980d24fc5be4d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JsonSaveSystem
+  filePath: Assets/Resources/
 --- !u!1001 &768450854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2696,6 +2710,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8f9746425331e894b8e84f6845555f2f, type: 3}
   m_PrefabInstance: {fileID: 1072834352}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1121823890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1121823891}
+  - component: {fileID: 1121823892}
+  m_Layer: 0
+  m_Name: GhostDataSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1121823891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121823890}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.37087, y: 0, z: -5.11597}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1121823892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121823890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb60d5db85a1e14eb339a9e4139ad59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostData
+  ghostDataFilePathBase: Assets/Resources/GhostSaveData
+  ghostDataFilePathFinal: 
 --- !u!1001 &1130033710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5518,7 +5578,7 @@ Transform:
   m_GameObject: {fileID: 2105951719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.62, z: 0}
+  m_LocalPosition: {x: 0, y: 1.62, z: -19.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5631,11 +5691,31 @@ MonoBehaviour:
       m_Action: Steering
       m_Flags: 8
     m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 745eb4c0-49a1-4b2f-8614-43aab7481b22
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a51340e4-8afc-4e78-9a69-42ab24e53654
+      m_Path: <Keyboard>/leftCtrl
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
   accelorationValue: 0
   brakeValue: 0
   steerValue: 0
   currentSpeed: 0
   maxSpeed: 50
+  offRoadMaxSpeed: 0
+  snakeOffRoadMaxSpeed: 0
+  horseMaxSpeed: 0
 --- !u!114 &2105951726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5658,4 +5738,5 @@ SceneRoots:
   - {fileID: 1314960165}
   - {fileID: 2105951723}
   - {fileID: 751656838}
+  - {fileID: 1121823891}
   - {fileID: 1332904142}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,5 +27,28 @@ public class GhostDataFrame
     {
         position = position_;
         rotation = rotation_;
+    }
+}
+
+[Serializable]
+public class SaveGhostData
+{
+    public string profileName;
+
+    public float posX, posY, posZ;
+    public float rotX, rotY, rotZ;
+    
+
+    public SaveGhostData(string profileName_, Vector3 position_, Vector3 rotation_)
+    {
+        profileName = profileName_;
+
+        posX = position_.x;
+        posY = position_.y;
+        posZ = position_.z;
+
+        rotX = rotation_.x;
+        rotY = rotation_.y;
+        rotZ = rotation_.z;
     }
 }

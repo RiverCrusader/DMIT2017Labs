@@ -9,10 +9,14 @@ public class PhysicsMovement : MonoBehaviour
     //add another type of obstacles reduce speed for duration of time
     //build map
     //add deceloration
+
+    public enum MountChoice {Horse, Snake, Dragon}
+    public MountChoice mount;
     
     public InputAction acceloration;
     public InputAction brake;
     public InputAction steering;
+    public InputAction jump;
 
     private Rigidbody rb;
 
@@ -20,22 +24,26 @@ public class PhysicsMovement : MonoBehaviour
     public float accelorationValue;
     public float brakeValue;
     public float steerValue;
+    public float jumpValue;
 
     //public float decelerationValue = 4.0f;
 
 
     public float currentSpeed;
     public float maxSpeed;
+    public float offRoadMaxSpeed;
+
+    public float snakeOffRoadMaxSpeed;
+    public float horseMaxSpeed;
 
     const float ACCELORATION_FACTOR = 15.0f;
     const float BRAKE_FACTOR = 15.0f;
     const float STEER_FACTOR = 20.0f;
+    const float JUMP_FORCE = 20.0f;
 
     //public UnityEvent OnRaceStarted;
 
-
-
-
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,6 +61,14 @@ public class PhysicsMovement : MonoBehaviour
 
         steering.performed += SteeringInput;
         steering.canceled += SteeringInput;
+
+        jump.performed += JumpInput;
+        jump.canceled += JumpInput;
+
+        //create the different mounts
+        MountType horse = new MountType(horseMaxSpeed, offRoadMaxSpeed, ACCELORATION_FACTOR, false );
+        MountType snake = new MountType(maxSpeed, snakeOffRoadMaxSpeed, ACCELORATION_FACTOR, false);
+        MountType dragon = new MountType(maxSpeed,offRoadMaxSpeed,ACCELORATION_FACTOR, true);
     }
 
     public void AccelorationInput(InputAction.CallbackContext c)
@@ -66,6 +82,11 @@ public class PhysicsMovement : MonoBehaviour
     public void SteeringInput(InputAction.CallbackContext c)
     {
         steerValue = c.ReadValue<float>() * STEER_FACTOR;
+    }
+
+    public void JumpInput(InputAction.CallbackContext c)
+    {
+        jumpValue = c.ReadValue<float>() * JUMP_FORCE;
     }
 
     // void Update()
@@ -108,6 +129,11 @@ public class PhysicsMovement : MonoBehaviour
         if (brakeValue < 0f)
         {
             rb.AddForce(transform.forward * brakeValue, ForceMode.Acceleration);
+        }
+
+        if(jumpValue < 0 && mount == MountChoice.Dragon)
+        {
+            rb.AddForce(transform.up * jumpValue, ForceMode.Force);
         }
 
         

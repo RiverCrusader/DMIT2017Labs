@@ -24,7 +24,7 @@ public class SaveSystem : MonoBehaviour
         Debug.Log(LoadData("Jordan"));
     }
 
-    public void CreateSave(string profileName_, int highScore_)
+    public void CreateSave(string profileName_, int highScore_, MountType mountType_, Color colour_, GhostData ghostData_)
     {
         SaveData saveData = new SaveData(profileName_, highScore_);
 
@@ -34,14 +34,12 @@ public class SaveSystem : MonoBehaviour
         {
             if (!fileExists)
             {
-                writer.WriteLine("Profile Name, Time");
+                writer.WriteLine($"Profile Name, High Score, {mountType_}, colour, Ghost Data File Name");
             }
 
-            writer.WriteLine($"{saveData.profileName}, {saveData.highScore}");
+            writer.WriteLine($"{saveData.profileName}, {saveData.highScore}, {mountType_}, {colour_}");
             saveDataList.Add(saveData);
         }
-
-
     }
 
     public void UpdateSave(SaveData saveFile_)

@@ -9,6 +9,7 @@ public class GhostDataRecorder : MonoBehaviour
     {
         StartRecording();
     } 
+    
     public void StartRecording()
     {
         recording = true;
