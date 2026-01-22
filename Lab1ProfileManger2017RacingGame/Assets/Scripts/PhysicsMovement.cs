@@ -137,7 +137,7 @@ public class PhysicsMovement : MonoBehaviour
         }
 
         
-        if (currentSpeed > 0.1f)
+        if (currentSpeed > 0.1f || currentSpeed < -0.1f)
         {
             float steerAmount = steerValue * Mathf.Sign(Vector3.Dot(rb.linearVelocity, transform.forward));
             transform.Rotate(0f, steerAmount * Time.fixedDeltaTime, 0f);
@@ -146,6 +146,11 @@ public class PhysicsMovement : MonoBehaviour
         if (currentSpeed > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+        }
+
+        if (currentSpeed <= 0 && brakeValue > 0f)
+        {
+            rb.AddForce(-transform.forward * brakeValue, ForceMode.Acceleration);
         }
     }
 
