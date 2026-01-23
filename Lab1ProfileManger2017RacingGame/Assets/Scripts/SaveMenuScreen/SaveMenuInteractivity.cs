@@ -6,11 +6,12 @@ public class SaveMenuInteractivity : MonoBehaviour
 {
     public GameObject canvas;
     public InputField profileNameField;
-    public string profileName;
+    string profileName;
     public Color colourChoice;
     public List<Toggle> mountType = new List<Toggle>();
 
     public Button startRaceButton;
+    JsonSaveSystem jsonSave;
 
 
     void Start()
@@ -26,11 +27,13 @@ public class SaveMenuInteractivity : MonoBehaviour
         profileName = profileNameField.text;
 
         if (profileName != "") startRaceButton.interactable = true;
-
     }
 
     public void SaveGameButton()
     {
+        if (profileName != "") jsonSave.SaveData();
+
+
         
     }
 
