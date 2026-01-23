@@ -4,15 +4,21 @@ using System.IO;
 public class JsonSaveSystem : MonoBehaviour
 {
     public string filePath;
+    string file;
     public SaveProfile profileData;
-    SaveMenuInteractivity inputName;
+    public SaveMenuInteractivity saveMenuInteract;
+    public GhostData ghostData;
+  
+    
+
 
     [ContextMenu("JSON Save")]
 
     public void SaveData()
     {
-        SaveProfile saveProfile = new SaveProfile("Jordan", 1121);
-        string file = $"{filePath}" + $"{inputName.profileName}" + ".json";
+        SaveProfile saveProfile = new SaveProfile(saveMenuInteract.profileName, saveMenuInteract.highScore, Color.darkMagenta, saveMenuInteract.mountType, ghostData);
+        file = filePath + saveMenuInteract.profileName + ".json";
+
         string json = JsonUtility.ToJson(saveProfile, true);
 
         File.WriteAllText(file, json);
@@ -40,11 +46,19 @@ public class SaveProfile
 {
     public string profileName;
     public int highScore;
+    public Color colour;
+    public string mount;
 
-    public SaveProfile(string profileName_, int highScore_)
+    public GhostData ghostData;
+
+    public SaveProfile(string profileName_, int highScore_, Color colour_, string mount_, GhostData ghostData_)
     {
         profileName = profileName_;
         highScore = highScore_;
+        colour = colour_;
+        mount = mount_;
+        ghostData = ghostData_;
+
     }
 }
 

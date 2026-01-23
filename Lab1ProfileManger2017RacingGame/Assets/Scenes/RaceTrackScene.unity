@@ -737,6 +737,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 86f783457a9659e41a99dc3147fefdba, type: 3}
   m_PrefabInstance: {fileID: 220217695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &237750592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237750594}
+  - component: {fileID: 237750593}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &237750593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237750592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b51239a098f574597055fa2232ce16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  playerSpawn: {fileID: 1935599340}
+  horseMount: {fileID: 1048550622664757930, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
+  snakeMount: {fileID: 2714165505710859903, guid: 3a5112916ebfd82429dbef1c90dda3d0, type: 3}
+  dragonMount: {fileID: 2926701306181043250, guid: e2ae0e6a6e115774aa05f3f5c9c3e620, type: 3}
+--- !u!4 &237750594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237750592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.90082, y: 0, z: 19.7331}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &240829811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2898,6 +2946,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JsonSaveSystem
   filePath: Assets/Resources/
+  saveMenuInteract: {fileID: 1883750338}
+  ghostData:
+    ghostDataFrames: []
 --- !u!1001 &768450854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5490,75 +5541,6 @@ Transform:
   - {fileID: 1314960165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1367229014
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 51.362656
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -50.500355
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222003568594736610, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 643716398796360658, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: ghostData
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 643716398796360658, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 643716398796360658, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: ghostData.ghostDataFrames.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1048550622664757930, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
-      propertyPath: m_Name
-      value: Horse
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
 --- !u!1 &1371485932
 GameObject:
   m_ObjectHideFlags: 0
@@ -7857,11 +7839,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveMenuInteractivity
   canvas: {fileID: 1883750333}
-  profileNameField: {fileID: 0}
+  profileNameField: {fileID: 2041774514}
   profileName: 
-  colourChoice: {r: 0, g: 0, b: 0, a: 0}
-  mountType: []
+  highScore: 0
+  colourChoice: {fileID: 0}
+  mountTypeToggleGroup: {fileID: 1106745925}
+  mountType: 
   startRaceButton: {fileID: 1933194819}
+  jsonSave: {fileID: 751656839}
+  gameManager: {fileID: 237750593}
 --- !u!1001 &1898035729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9005,4 +8991,4 @@ SceneRoots:
   - {fileID: 1883750337}
   - {fileID: 1132068781}
   - {fileID: 1935599341}
-  - {fileID: 1367229014}
+  - {fileID: 237750594}

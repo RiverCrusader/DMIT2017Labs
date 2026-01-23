@@ -9,9 +9,7 @@ public class PhysicsMovement : MonoBehaviour
     //add another type of obstacles reduce speed for duration of time
     //build map
     //add deceloration
-
-    public enum MountChoice {Horse, Snake, Dragon}
-    public MountChoice mount;
+    public MountType mountType;
     
     public InputAction acceloration;
     public InputAction brake;
@@ -66,9 +64,10 @@ public class PhysicsMovement : MonoBehaviour
         jump.canceled += JumpInput;
 
         //create the different mounts
-        MountType horse = new MountType(horseMaxSpeed, offRoadMaxSpeed, false);
-        MountType snake = new MountType(maxSpeed, snakeOffRoadMaxSpeed, false);
-        MountType dragon = new MountType(maxSpeed,offRoadMaxSpeed, true);
+        MountType horse = new MountType(horseMaxSpeed, offRoadMaxSpeed, false, MountType.MountChoice.Horse);
+        MountType snake = new MountType(maxSpeed, snakeOffRoadMaxSpeed, false, MountType.MountChoice.Snake);
+        MountType dragon = new MountType(maxSpeed,offRoadMaxSpeed, true, MountType.MountChoice.Dragon);
+
     }
 
     public void AccelorationInput(InputAction.CallbackContext c)
@@ -131,7 +130,8 @@ public class PhysicsMovement : MonoBehaviour
             rb.AddForce(transform.forward * brakeValue, ForceMode.Acceleration);
         }
 
-        if(jumpValue < 0 && mount == MountChoice.Dragon)
+        // && mount == mount.MountChoice.Dragon
+        if(jumpValue > 0f)
         {
             rb.AddForce(transform.up * jumpValue, ForceMode.Force);
         }
