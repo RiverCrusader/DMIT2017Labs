@@ -1,16 +1,46 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveMenuInteractivity : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject canvas;
+    public InputField profileNameField;
+    public string profileName;
+    public Color colourChoice;
+    public List<Toggle> mountType = new List<Toggle>();
+
+    public Button startRaceButton;
+
+
     void Start()
+    {
+        canvas.SetActive(true);
+
+        profileName = "";
+    }
+
+
+    public void SubmitProfile()
+    {
+        profileName = profileNameField.text;
+
+        if (profileName != "") startRaceButton.interactable = true;
+
+    }
+
+    public void SaveGameButton()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeleteSaveButton(SaveData saveFile_)
     {
         
+    }
+
+    public void StartRace()
+    {
+        canvas.SetActive(false);
     }
 }

@@ -66,9 +66,9 @@ public class PhysicsMovement : MonoBehaviour
         jump.canceled += JumpInput;
 
         //create the different mounts
-        MountType horse = new MountType(horseMaxSpeed, offRoadMaxSpeed, ACCELORATION_FACTOR, false );
-        MountType snake = new MountType(maxSpeed, snakeOffRoadMaxSpeed, ACCELORATION_FACTOR, false);
-        MountType dragon = new MountType(maxSpeed,offRoadMaxSpeed,ACCELORATION_FACTOR, true);
+        MountType horse = new MountType(horseMaxSpeed, offRoadMaxSpeed, false);
+        MountType snake = new MountType(maxSpeed, snakeOffRoadMaxSpeed, false);
+        MountType dragon = new MountType(maxSpeed,offRoadMaxSpeed, true);
     }
 
     public void AccelorationInput(InputAction.CallbackContext c)

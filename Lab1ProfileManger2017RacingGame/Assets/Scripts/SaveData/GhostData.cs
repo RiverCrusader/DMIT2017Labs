@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostData : MonoBehaviour
+[Serializable]
+public class GhostData
 {
     public List<GhostDataFrame> ghostDataFrames = new List<GhostDataFrame>();
 
@@ -18,6 +19,8 @@ public class GhostData : MonoBehaviour
 
 }
 
+[Serializable]
+
 public class GhostDataFrame
 {
     public Vector3 position;
@@ -30,25 +33,25 @@ public class GhostDataFrame
     }
 }
 
-[Serializable]
-public class SaveGhostData
-{
-    public string profileName;
+// [Serializable]
+// public class SaveGhostData
+// {
+//     public string profileName;
 
-    public float posX, posY, posZ;
-    public float rotX, rotY, rotZ;
+//     public float posX, posY, posZ;
+//     public float rotX, rotY, rotZ;
     
 
-    public SaveGhostData(string profileName_, Vector3 position_, Vector3 rotation_)
-    {
-        profileName = profileName_;
+//     public SaveGhostData(string profileName_, Vector3 position_, Vector3 rotation_)
+//     {
+//         profileName = profileName_;
 
-        posX = position_.x;
-        posY = position_.y;
-        posZ = position_.z;
+//         posX = position_.x;
+//         posY = position_.y;
+//         posZ = position_.z;
 
-        rotX = rotation_.x;
-        rotY = rotation_.y;
-        rotZ = rotation_.z;
-    }
-}
+//         rotX = rotation_.x;
+//         rotY = rotation_.y;
+//         rotZ = rotation_.z;
+//     }
+// }

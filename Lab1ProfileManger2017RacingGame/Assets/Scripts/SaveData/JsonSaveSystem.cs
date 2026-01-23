@@ -6,15 +6,16 @@ public class JsonSaveSystem : MonoBehaviour
     public string filePath;
     public SaveProfile profileData;
     string profileName;
+
     [ContextMenu("JSON Save")]
 
     public void SaveData()
     {
         SaveProfile saveProfile = new SaveProfile("Jordan", 1121);
-        string file = filePath + profileName + ".json";
+        string file = $"{filePath}" + $"{profileName}" + ".json";
         string json = JsonUtility.ToJson(saveProfile, true);
 
-        File.WriteAllText(filePath, json);
+        File.WriteAllText(file, json);
     }
 
     [ContextMenu("JSON Load")]
