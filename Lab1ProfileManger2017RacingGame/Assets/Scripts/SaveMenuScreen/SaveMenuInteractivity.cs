@@ -6,7 +6,7 @@ public class SaveMenuInteractivity : MonoBehaviour
 {
     public GameObject canvas;
     public InputField profileNameField;
-    string profileName;
+    public string profileName;
     public Color colourChoice;
     public List<Toggle> mountType = new List<Toggle>();
 
