@@ -7,7 +7,7 @@ public class GhostDataRecorder : MonoBehaviour
 
     void Start()
     {
-        StartRecording();
+        //StartRecording();
     } 
     
     public void StartRecording()

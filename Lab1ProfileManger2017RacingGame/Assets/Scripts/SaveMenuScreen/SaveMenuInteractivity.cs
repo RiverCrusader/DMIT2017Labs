@@ -82,7 +82,7 @@ public class SaveMenuInteractivity : MonoBehaviour
 
         if (profileName != "") 
         {
-            jsonSave.SaveData(profileName, highScore, colourChoice, mountType, player.ghostData);
+            jsonSave.SaveData(profileName, highScore, colourChoice, mountType, player.ghostDataRecorder.ghostData);
         }
         
     }
@@ -121,6 +121,7 @@ public class SaveMenuInteractivity : MonoBehaviour
     {
         canvas.SetActive(false);
         gameManager.StartRace();
+        
 
 
     }

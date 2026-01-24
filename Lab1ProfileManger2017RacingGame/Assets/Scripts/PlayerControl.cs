@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour
             mountType = "Dragon";
         }
 
-        //ghostDataRecorder.StartRecording();
+        ghostDataRecorder.StartRecording();
 
     }
     void FixedUpdate()

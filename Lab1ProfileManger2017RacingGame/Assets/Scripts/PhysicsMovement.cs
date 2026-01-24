@@ -93,34 +93,6 @@ public class PhysicsMovement : MonoBehaviour
         jumpValue = c.ReadValue<float>() * JUMP_FORCE;
     }
 
-    // void Update()
-    // {
-
-    //     //currentSpeed -= decelerationValue * Time.deltaTime;
-    //     //currentSpeed += accelorationValue * Time.deltaTime;
-    //     //currentSpeed -= brakeValue * Time.deltaTime;
-        
-    //     currentSpeed = Mathf.Clamp(currentSpeed, 0, maxSpeed);
-
-    //     if(Mathf.Abs(currentSpeed) > 0.0f)
-    //     {
-    //         float steer = steervalue * Mathf.Sign(currentSpeed);
-
-    //         transform.Rotate(0f, steer * Time.deltaTime ,0f);
-    //     }
-
-    //     //tmp = temporary  ( for naming conventions) 
-    //     Vector3 tmp = transform.forward * currentSpeed;
-    //     //this will overwright gravity calcs so need to reset them so they work
-
-
-    //     rb.AddForce(transform.forward * accelorationValue, ForceMode.Acceleration);
-
-        
-    //     //rb.linearVelocity = tmp;
-
-    // }
-
     private void FixedUpdate()
     {
         float currentSpeed = rb.linearVelocity.magnitude;
