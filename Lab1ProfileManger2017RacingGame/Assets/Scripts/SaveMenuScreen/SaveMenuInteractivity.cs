@@ -3,20 +3,28 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class SaveMenuInteractivity : MonoBehaviour
 {
     public GameObject canvas;
+
+    [Header("Save Data")]
     public TMP_InputField profileNameField;
     public string profileName;
     public int highScore;
-    public TMP_ColorGradient colourChoice;
-    //public List<Toggle> mountTypeToggle = new List<Toggle>();
-    public ToggleGroup mountTypeToggleGroup;
+    public TMP_Text highScoreDisplay;
+    public FlexibleColorPicker fcp;
+    public Color colourChoice;
+    public List<Toggle> mountTypeToggle = new List<Toggle>();
+    //public ToggleGroup mountTypeToggleGroup;
     public string mountType;
-
-    public Button startRaceButton;
+    public PlayerControl player;
     public JsonSaveSystem jsonSave;
+
+    [Header("Buttons and Managers")]
+    public Button startRaceButton;
+    public Button saveButton, loadSaveButton, deleteSaveButton;
     public GameManager gameManager;
 
 
@@ -25,63 +33,94 @@ public class SaveMenuInteractivity : MonoBehaviour
         canvas.SetActive(true);
         startRaceButton.interactable = false;
 
+        saveButton.interactable = false;
+        loadSaveButton.interactable = false;
+        deleteSaveButton.interactable = false;
+
+
         profileName = "";
+    }
+    void FixedUpdate()
+    {
+        highScoreDisplay.text = $"{highScore}";
     }
 
     public void SubmitProfile()
     {
         profileName = profileNameField.text;
 
-        if (profileName != "") startRaceButton.interactable = true;
+        if (profileName != "") 
+        {
+            startRaceButton.interactable = true;
+
+            saveButton.interactable = true;
+            loadSaveButton.interactable = true;
+            deleteSaveButton.interactable = true;
+        }
     }
 
     public void SaveGameButton()
     {
-        Toggle selectedToggle = mountTypeToggleGroup.ActiveToggles().FirstOrDefault();
-
-        if (selectedToggle != null)
+        
+        if(mountTypeToggle[0].isOn == true)
         {
-            Debug.Log("The selected toggle is: " + selectedToggle.name);
-
-            if(selectedToggle.name == "HorseToggle")
-            {
-                mountType = "Horse";
-            }
-            if(selectedToggle.name == "SnakeToggle")
-            {
-                mountType = "Snake";
-            }
-            if(selectedToggle.name == "DragonToggle")
-            {
-                mountType = "Dragon";
-            }
+            mountType = "Horse";
         }
-        else
+        if(mountTypeToggle[1].isOn == true)
         {
-            // This case might happen if "Allow Switch Off" is enabled on the Toggle Group
-            Debug.Log("No toggle is currently active.");
+            mountType = "Snake";
         }
+        if(mountTypeToggle[2].isOn == true)
+        {
+            mountType = "Dragon";
+        }
+
+        //load colour choice from flexible colour picker 
+        //made by: Ward Dehairs, Asset store link -> https://assetstore.unity.com/packages/tools/gui/flexible-color-picker-150497
+        colourChoice = fcp.color;
 
         if (profileName != "") 
         {
-            jsonSave.SaveData();
+            jsonSave.SaveData(profileName, highScore, colourChoice, mountType, player.ghostData);
         }
         
     }
 
     public void LoadGameButton()
     {
+        jsonSave.LoadData(profileName);
+
+        highScore = jsonSave.profileData.highScore;
+        colourChoice = jsonSave.profileData.colour;
+        profileName = jsonSave.profileData.profileName;
+
         
+        if (jsonSave.profileData.mount == "Horse")
+        {
+            mountTypeToggle[0].isOn = true;
+        }
+        if (jsonSave.profileData.mount == "Snake")
+        {
+            mountTypeToggle[1].isOn = true;
+        }
+        if (jsonSave.profileData.mount == "Dragon")
+        {
+            mountTypeToggle[2].isOn = true;
+        }
+
+        fcp.color = colourChoice;
     }
 
-    public void DeleteSaveButton(SaveData saveFile_)
+    public void DeleteSaveButton()
     {
-        
+        jsonSave.DeleteData(profileName);
     }
 
     public void StartRace()
     {
         canvas.SetActive(false);
-        gameManager.SpawnPlayer(mountType);
+        gameManager.StartRace();
+
+
     }
 }

@@ -1,23 +1,20 @@
 using UnityEngine;
 using System.IO;
+using UnityEditor.Build.Content;
 
 public class JsonSaveSystem : MonoBehaviour
 {
     public string filePath;
     string file;
     public SaveProfile profileData;
-    public SaveMenuInteractivity saveMenuInteract;
-    public GhostData ghostData;
   
-    
-
 
     [ContextMenu("JSON Save")]
 
-    public void SaveData()
+    public void SaveData(string profileName_, int highScore_, Color colour_, string mountType_, GhostData ghostData_)
     {
-        SaveProfile saveProfile = new SaveProfile(saveMenuInteract.profileName, saveMenuInteract.highScore, Color.darkMagenta, saveMenuInteract.mountType, ghostData);
-        file = filePath + saveMenuInteract.profileName + ".json";
+        SaveProfile saveProfile = new SaveProfile(profileName_, highScore_, colour_, mountType_, ghostData_);
+        file = filePath + profileName_ + ".json";
 
         string json = JsonUtility.ToJson(saveProfile, true);
 
@@ -26,11 +23,13 @@ public class JsonSaveSystem : MonoBehaviour
 
     [ContextMenu("JSON Load")]
 
-    public void LoadData()
+    public void LoadData(string profileName_)
     {
-        if (File.Exists(filePath))
+        file = filePath + profileName_ + ".json";
+
+        if (File.Exists(file))
         {
-            string json = File.ReadAllText(filePath);
+            string json = File.ReadAllText(file);
 
             profileData = JsonUtility.FromJson<SaveProfile>(json);
         }
@@ -39,6 +38,11 @@ public class JsonSaveSystem : MonoBehaviour
         {
             Debug.LogError("Save file not found");
         }
+    }
+
+    public void DeleteData(string profileName_)
+    {
+        
     }
 }
 

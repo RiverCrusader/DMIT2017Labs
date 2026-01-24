@@ -1,0 +1,14 @@
+{
+    "profileName": "Hunter",
+    "highScore": 500,
+    "colour": {
+        "r": 0.6969258189201355,
+        "g": 0.9121875762939453,
+        "b": 0.10154998302459717,
+        "a": 1.0
+    },
+    "mount": "Horse",
+    "ghostData": {
+        "ghostDataFrames": []
+    }
+}

@@ -9,7 +9,6 @@ public class PhysicsMovement : MonoBehaviour
     //add another type of obstacles reduce speed for duration of time
     //build map
     //add deceloration
-    public MountType mountType;
     
     public InputAction acceloration;
     public InputAction brake;
@@ -31,13 +30,14 @@ public class PhysicsMovement : MonoBehaviour
     public float maxSpeed;
     public float offRoadMaxSpeed;
 
-    public float snakeOffRoadMaxSpeed;
-    public float horseMaxSpeed;
-
     const float ACCELORATION_FACTOR = 15.0f;
     const float BRAKE_FACTOR = 15.0f;
     const float STEER_FACTOR = 20.0f;
     const float JUMP_FORCE = 20.0f;
+
+    PlayerControl playerControl;
+    bool canJump = false;
+    bool grounded = true;
 
     //public UnityEvent OnRaceStarted;
 
@@ -45,6 +45,7 @@ public class PhysicsMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerControl = GetComponentInParent<PlayerControl>();
 
         acceloration.Enable();
         brake.Enable();
@@ -63,11 +64,15 @@ public class PhysicsMovement : MonoBehaviour
         jump.performed += JumpInput;
         jump.canceled += JumpInput;
 
-        //create the different mounts
-        MountType horse = new MountType(horseMaxSpeed, offRoadMaxSpeed, false, MountType.MountChoice.Horse);
-        MountType snake = new MountType(maxSpeed, snakeOffRoadMaxSpeed, false, MountType.MountChoice.Snake);
-        MountType dragon = new MountType(maxSpeed,offRoadMaxSpeed, true, MountType.MountChoice.Dragon);
+        if(playerControl.mountType == "Dragon")
+        {
+            canJump = true;
+        }
 
+        // //create the different mounts
+        // MountType horse = new MountType(horseMaxSpeed, offRoadMaxSpeed, false, MountType.MountChoice.Horse);
+        // MountType snake = new MountType(maxSpeed, snakeOffRoadMaxSpeed, false, MountType.MountChoice.Snake);
+        // MountType dragon = new MountType(maxSpeed,offRoadMaxSpeed, true, MountType.MountChoice.Dragon);
     }
 
     public void AccelorationInput(InputAction.CallbackContext c)
@@ -131,7 +136,7 @@ public class PhysicsMovement : MonoBehaviour
         }
 
         // && mount == mount.MountChoice.Dragon
-        if(jumpValue > 0f)
+        if(jumpValue > 0f && canJump && grounded)
         {
             rb.AddForce(transform.up * jumpValue, ForceMode.Force);
         }
@@ -170,5 +175,13 @@ public class PhysicsMovement : MonoBehaviour
         maxSpeed -= boost_ * 2;
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        grounded = true;
+    }
+    void OnTriggerExit(Collider other)
+    {
+        grounded = false;
+    }
 }
 

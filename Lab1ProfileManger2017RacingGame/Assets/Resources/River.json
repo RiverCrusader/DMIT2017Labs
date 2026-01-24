@@ -1,0 +1,14 @@
+{
+    "profileName": "River",
+    "highScore": 600,
+    "colour": {
+        "r": 0.7869324684143066,
+        "g": 0.0,
+        "b": 1.0,
+        "a": 1.0
+    },
+    "mount": "Dragon",
+    "ghostData": {
+        "ghostDataFrames": []
+    }
+}

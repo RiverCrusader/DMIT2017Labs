@@ -1,0 +1,14 @@
+{
+    "profileName": "UrMom",
+    "highScore": 3500,
+    "colour": {
+        "r": 0.9121875762939453,
+        "g": 0.10154998302459717,
+        "b": 0.7774931192398071,
+        "a": 1.0
+    },
+    "mount": "Dragon",
+    "ghostData": {
+        "ghostDataFrames": []
+    }
+}

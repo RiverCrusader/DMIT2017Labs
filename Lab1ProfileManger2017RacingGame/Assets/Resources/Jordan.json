@@ -1,11 +1,14 @@
 {
     "profileName": "Jordan",
-    "highScore": 0,
+    "highScore": 1200,
     "colour": {
-        "r": 0.5450981259346008,
-        "g": 0.0,
-        "b": 0.5450981259346008,
+        "r": 0.10154998302459717,
+        "g": 0.9121875762939453,
+        "b": 0.7358343005180359,
         "a": 1.0
     },
-    "mount": "Dragon"
+    "mount": "Snake",
+    "ghostData": {
+        "ghostDataFrames": []
+    }
 }
