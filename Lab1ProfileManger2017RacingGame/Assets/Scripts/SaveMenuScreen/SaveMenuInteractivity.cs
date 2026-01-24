@@ -12,6 +12,7 @@ public class SaveMenuInteractivity : MonoBehaviour
     public GameObject canvas;
 
     [Header("Save Data")]
+    string file;
     public TMP_InputField profileNameField;
     public string profileName;
     public int highScore;
@@ -64,6 +65,8 @@ public class SaveMenuInteractivity : MonoBehaviour
             loadSaveButton.interactable = true;
             deleteSaveButton.interactable = true;
         }
+        
+        deletionConfirmation.enabled = false;
     }
 
     public void SaveGameButton()
@@ -97,56 +100,75 @@ public class SaveMenuInteractivity : MonoBehaviour
     {
         jsonSave.LoadData(profileName);
 
-        highScore = jsonSave.profileData.highScore;
-        colourChoice = jsonSave.profileData.colour;
-        profileName = jsonSave.profileData.profileName;
+        file = jsonSave.filePath + profileName + ".json";
 
-        
-        if (jsonSave.profileData.mount == "Horse")
+        if(File.Exists(file))
         {
-            mountTypeToggle[0].isOn = true;
-        }
-        if (jsonSave.profileData.mount == "Snake")
-        {
-            mountTypeToggle[1].isOn = true;
-        }
-        if (jsonSave.profileData.mount == "Dragon")
-        {
-            mountTypeToggle[2].isOn = true;
-        }
+            highScore = jsonSave.profileData.highScore;
+            colourChoice = jsonSave.profileData.colour;
+            profileName = jsonSave.profileData.profileName;
 
-        fcp.color = colourChoice;
+            
+            if (jsonSave.profileData.mount == "Horse")
+            {
+                mountTypeToggle[0].isOn = true;
+            }
+            if (jsonSave.profileData.mount == "Snake")
+            {
+                mountTypeToggle[1].isOn = true;
+            }
+            if (jsonSave.profileData.mount == "Dragon")
+            {
+                mountTypeToggle[2].isOn = true;
+            }
+
+            fcp.color = colourChoice;
+        }
+        else
+        {
+            
+            deletionConfirmation.text = "Profile Dosnt Exist";
+            deletionConfirmation.fontStyle = FontStyles.Bold;
+            deletionConfirmation.enabled = true;
+        }
     }
 
     public void DeleteSaveButton()
     {
-        string file = jsonSave.filePath + profileName + ".json";
-
-        deletionConfirmation.text = "Are you sure you want to delete your save file?";
-
-        deletionConfirmation.enabled = true;
-
-        if(messageShowing && File.Exists(file))
-        {
-            jsonSave.DeleteData(profileName);
-        }
-        
-        messageShowing = true;
+        file = jsonSave.filePath + profileName + ".json";
 
         if(!File.Exists(file))
         {
             deletionConfirmation.text = "Profile Dosnt Exist";
+            deletionConfirmation.fontStyle = FontStyles.Bold;
             deletionConfirmation.enabled = true;
             messageShowing = false;
         }
+
+        if(messageShowing && File.Exists(file))
+        {
+            jsonSave.DeleteData(profileName);
+            deletionConfirmation.text = "Profile Deleted";
+            deletionConfirmation.fontStyle = FontStyles.Bold;
+        }
+
+        if(!messageShowing && File.Exists(file))
+        {
+            deletionConfirmation.text = "Are you sure you want to delete your save file?";
+            deletionConfirmation.fontStyle = FontStyles.Bold;
+            deletionConfirmation.enabled = true;
+            
+            messageShowing = true;
+        } 
     }
 
     public void StartRace()
     {
         canvas.SetActive(false);
         gameManager.StartRace();
-        
-
-
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

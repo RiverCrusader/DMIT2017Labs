@@ -37,7 +37,7 @@ public class JsonSaveSystem : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Save file not found");
+            Debug.Log("Save file not found");
             fileExists = false;
         }
     }
