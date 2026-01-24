@@ -33,7 +33,7 @@ public class PhysicsMovement : MonoBehaviour
     const float ACCELORATION_FACTOR = 15.0f;
     const float BRAKE_FACTOR = 15.0f;
     const float STEER_FACTOR = 20.0f;
-    const float JUMP_FORCE = 20.0f;
+    const float JUMP_FORCE = 2000.0f;
 
     PlayerControl playerControl;
     bool canJump = false;

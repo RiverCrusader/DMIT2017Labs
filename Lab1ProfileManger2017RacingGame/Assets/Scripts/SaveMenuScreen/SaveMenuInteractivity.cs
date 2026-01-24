@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using System.Linq;
+// using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
+// using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.IO;
-//using UnityEngine.UIElements;
 
 public class SaveMenuInteractivity : MonoBehaviour
 {
@@ -108,6 +107,7 @@ public class SaveMenuInteractivity : MonoBehaviour
             colourChoice = jsonSave.profileData.colour;
             profileName = jsonSave.profileData.profileName;
 
+            gameManager.ghostData = jsonSave.profileData.ghostData;
             
             if (jsonSave.profileData.mount == "Horse")
             {
@@ -166,6 +166,10 @@ public class SaveMenuInteractivity : MonoBehaviour
     {
         canvas.SetActive(false);
         gameManager.StartRace();
+    }
+    public void EndRace()
+    {
+        canvas.SetActive(true);
     }
     public void ExitGame()
     {

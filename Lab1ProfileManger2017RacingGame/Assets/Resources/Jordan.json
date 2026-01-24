@@ -1,0 +1,27 @@
+{
+    "profileName": "Jordan",
+    "highScore": 0,
+    "colour": {
+        "r": 0.5425177216529846,
+        "g": 0.054165661334991458,
+        "b": 0.7429981231689453,
+        "a": 1.0
+    },
+    "mount": "Dragon",
+    "ghostData": {
+        "ghostDataFrames": [
+            {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            }
+        ]
+    }
+}

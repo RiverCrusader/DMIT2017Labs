@@ -48,7 +48,18 @@ public class PlayerControl : MonoBehaviour
     public void SpawnMount(int mountchoice_)
     {
         GameObject instance = Instantiate(mounts[mountchoice_], transform, false);
+
+        if(instance != null)
+        {
+            transform.SetParent(instance.transform);
+        }
     }
     
+    public void EndRace(float highScore_)
+    {
+        ghostDataRecorder.StopRecording();
+        smi.highScore = (int)highScore_;
+        smi.EndRace();
+    }
     
 }
