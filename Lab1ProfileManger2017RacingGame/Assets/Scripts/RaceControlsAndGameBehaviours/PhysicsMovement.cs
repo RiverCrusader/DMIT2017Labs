@@ -45,6 +45,7 @@ public class PhysicsMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        float currentSpeed = rb.linearVelocity.magnitude;
         playerControl = GetComponentInParent<PlayerControl>();
 
         acceloration.Enable();
@@ -95,8 +96,6 @@ public class PhysicsMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float currentSpeed = rb.linearVelocity.magnitude;
-
         if (accelorationValue > 0f)
         {
             rb.AddForce(transform.forward * accelorationValue, ForceMode.Acceleration);
@@ -155,5 +154,9 @@ public class PhysicsMovement : MonoBehaviour
     {
         grounded = false;
     }
+    // public void SpawnMount()
+    // {
+        
+    // }
 }
 

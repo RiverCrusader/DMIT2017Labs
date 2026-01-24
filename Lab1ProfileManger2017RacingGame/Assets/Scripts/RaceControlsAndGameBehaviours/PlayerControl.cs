@@ -52,6 +52,7 @@ public class PlayerControl : MonoBehaviour
         if(instance != null)
         {
             transform.SetParent(instance.transform);
+            //physMove.SpawnMount();
         }
     }
     

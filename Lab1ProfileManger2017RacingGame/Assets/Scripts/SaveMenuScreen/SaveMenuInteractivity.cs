@@ -9,6 +9,7 @@ using System.IO;
 public class SaveMenuInteractivity : MonoBehaviour
 {
     public GameObject canvas;
+    public Camera UICam;
 
     [Header("Save Data")]
     string file;
@@ -166,6 +167,7 @@ public class SaveMenuInteractivity : MonoBehaviour
     {
         canvas.SetActive(false);
         gameManager.StartRace();
+        UICam.enabled = false;
     }
     public void EndRace()
     {
