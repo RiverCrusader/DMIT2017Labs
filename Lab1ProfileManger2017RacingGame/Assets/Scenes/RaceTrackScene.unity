@@ -748,7 +748,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostDataRecorder
   ghostData:
-    ghostDataFrames: []
+    ghostDataFrames:
+    - position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
 --- !u!114 &212883321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,7 +763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa141d75c2d2d142a942b129c18be2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhysicsMovement
-  mountType: {fileID: 0}
   acceloration:
     m_Name: Acceloration
     m_Type: 0
@@ -869,11 +870,13 @@ MonoBehaviour:
   - {fileID: 1048550622664757930, guid: daaee28bba88e4c4ea08c797b45effb2, type: 3}
   - {fileID: 2714165505710859903, guid: 3a5112916ebfd82429dbef1c90dda3d0, type: 3}
   - {fileID: 2926701306181043250, guid: e2ae0e6a6e115774aa05f3f5c9c3e620, type: 3}
+  mountType: 
   playerSpawnPoint: {fileID: 1935599340}
   mountColour: {fileID: 2100000, guid: a1667dfe0e8e17f41ae0166fcc8d5944, type: 2}
   smi: {fileID: 1883750338}
   ghostData:
     ghostDataFrames: []
+  ghostDataRecorder: {fileID: 212883320}
 --- !u!1001 &220217695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4950,13 +4953,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1883750333}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1883750338}
+        m_TargetAssemblyTypeName: SaveMenuInteractivity, Assembly-CSharp
+        m_MethodName: DeleteSaveButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

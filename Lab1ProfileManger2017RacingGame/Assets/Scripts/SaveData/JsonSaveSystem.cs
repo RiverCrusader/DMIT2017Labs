@@ -42,7 +42,16 @@ public class JsonSaveSystem : MonoBehaviour
 
     public void DeleteData(string profileName_)
     {
-        
+        file = filePath + profileName_ + ".json";
+
+        if(File.Exists(file))
+        {
+            File.Delete(file);
+        }
+        else
+        {
+            Debug.Log("Save file not found");
+        }
     }
 }
 

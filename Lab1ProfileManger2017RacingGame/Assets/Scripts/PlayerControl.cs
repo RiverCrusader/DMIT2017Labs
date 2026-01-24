@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
     PhysicsMovement physMove;
     public SaveMenuInteractivity smi;
     public GhostData ghostData;
+    public GhostDataRecorder ghostDataRecorder;
 
     public void StartRace()
     {
@@ -35,6 +36,8 @@ public class PlayerControl : MonoBehaviour
             SpawnMount(2);
             mountType = "Dragon";
         }
+
+        //ghostDataRecorder.StartRecording();
 
     }
     void FixedUpdate()

@@ -14,6 +14,10 @@ public class GhostDataRecorder : MonoBehaviour
     {
         recording = true;
     }
+    public void StopRecording()
+    {
+        recording = false;
+    }
 
 
     void FixedUpdate()

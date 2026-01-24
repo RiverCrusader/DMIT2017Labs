@@ -6,7 +6,5 @@ public class GameManager : MonoBehaviour
     public void StartRace()
     {
         playerControl.StartRace();
-        
-        
     }
 }

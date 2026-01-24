@@ -181,7 +181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2714165505710859903}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fa141d75c2d2d142a942b129c18be2b, type: 3}
   m_Name: 
@@ -277,7 +277,6 @@ MonoBehaviour:
   currentSpeed: 0
   maxSpeed: 50
   offRoadMaxSpeed: 45
-  playerControl: {fileID: 0}
 --- !u!114 &9030968620229523993
 MonoBehaviour:
   m_ObjectHideFlags: 0
