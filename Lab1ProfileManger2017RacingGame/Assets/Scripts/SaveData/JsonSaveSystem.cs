@@ -7,6 +7,7 @@ public class JsonSaveSystem : MonoBehaviour
     public string filePath;
     string file;
     public SaveProfile profileData;
+    bool fileExists = false;
   
 
     [ContextMenu("JSON Save")]
@@ -29,14 +30,15 @@ public class JsonSaveSystem : MonoBehaviour
 
         if (File.Exists(file))
         {
+            fileExists = true;
             string json = File.ReadAllText(file);
 
             profileData = JsonUtility.FromJson<SaveProfile>(json);
         }
-
         else
         {
             Debug.LogError("Save file not found");
+            fileExists = false;
         }
     }
 
@@ -46,10 +48,12 @@ public class JsonSaveSystem : MonoBehaviour
 
         if(File.Exists(file))
         {
+            fileExists = true;
             File.Delete(file);
         }
         else
         {
+            fileExists = false;
             Debug.Log("Save file not found");
         }
     }

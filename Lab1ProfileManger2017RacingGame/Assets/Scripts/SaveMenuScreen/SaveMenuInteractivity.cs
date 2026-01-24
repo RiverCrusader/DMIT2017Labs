@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.IO;
 //using UnityEngine.UIElements;
 
 public class SaveMenuInteractivity : MonoBehaviour
@@ -15,6 +16,8 @@ public class SaveMenuInteractivity : MonoBehaviour
     public string profileName;
     public int highScore;
     public TMP_Text highScoreDisplay;
+    public TMP_Text deletionConfirmation;
+    bool messageShowing;
     public FlexibleColorPicker fcp;
     public Color colourChoice;
     public List<Toggle> mountTypeToggle = new List<Toggle>();
@@ -33,6 +36,9 @@ public class SaveMenuInteractivity : MonoBehaviour
     {
         canvas.SetActive(true);
         startRaceButton.interactable = false;
+
+        deletionConfirmation.enabled = false;
+        messageShowing = false;
 
         saveButton.interactable = false;
         loadSaveButton.interactable = false;
@@ -114,7 +120,25 @@ public class SaveMenuInteractivity : MonoBehaviour
 
     public void DeleteSaveButton()
     {
-        jsonSave.DeleteData(profileName);
+        string file = jsonSave.filePath + profileName + ".json";
+
+        deletionConfirmation.text = "Are you sure you want to delete your save file?";
+
+        deletionConfirmation.enabled = true;
+
+        if(messageShowing && File.Exists(file))
+        {
+            jsonSave.DeleteData(profileName);
+        }
+        
+        messageShowing = true;
+
+        if(!File.Exists(file))
+        {
+            deletionConfirmation.text = "Profile Dosnt Exist";
+            deletionConfirmation.enabled = true;
+            messageShowing = false;
+        }
     }
 
     public void StartRace()

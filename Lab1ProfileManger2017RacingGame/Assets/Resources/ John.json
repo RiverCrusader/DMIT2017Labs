@@ -1,0 +1,27 @@
+{
+    "profileName": " John",
+    "highScore": 0,
+    "colour": {
+        "r": 0.3426477909088135,
+        "g": 0.3426477909088135,
+        "b": 0.3426477909088135,
+        "a": 1.0
+    },
+    "mount": "Snake",
+    "ghostData": {
+        "ghostDataFrames": [
+            {
+                "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                }
+            }
+        ]
+    }
+}
