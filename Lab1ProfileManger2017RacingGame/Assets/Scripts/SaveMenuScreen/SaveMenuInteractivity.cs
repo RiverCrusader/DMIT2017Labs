@@ -108,7 +108,7 @@ public class SaveMenuInteractivity : MonoBehaviour
             colourChoice = jsonSave.profileData.colour;
             profileName = jsonSave.profileData.profileName;
 
-            gameManager.ghostData = jsonSave.profileData.ghostData;
+            gameManager.playerGhostData = jsonSave.profileData.ghostData;
             
             if (jsonSave.profileData.mount == "Horse")
             {

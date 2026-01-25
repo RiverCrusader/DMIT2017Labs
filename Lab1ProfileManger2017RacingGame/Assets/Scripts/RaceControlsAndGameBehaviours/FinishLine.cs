@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
-    GameManager gameManager;
+    public GameManager gameManager;
 
     void OnTriggerEnter(Collider other)
     {

@@ -4,21 +4,33 @@ public class GameManager : MonoBehaviour
 {
     public PlayerControl playerControl;
     public GhostDataPlayer ghostDataPlayer;
-    public GhostData ghostData;
+    GameObject player;
+    public GhostData playerGhostData;
     float highscore;
 
     float startTime = 0, endTime = 0;
     public void StartRace()
     {
-        playerControl.StartRace();
-        ghostDataPlayer.RetrieveGhostData(ghostData, playerControl.mountColour.color);
+        player = GameObject.FindGameObjectWithTag("Player");
+        //playerGhostData.ghostDataFrames = player.GetComponent<GhostData>().ghostDataFrames;
+
+        if(playerGhostData != null)
+        {
+            GameObject instance = Instantiate(ghostDataPlayer.gameObject);
+            ghostDataPlayer.RetrieveGhostData(playerGhostData, playerControl.mountColour.color);
+        }
         
+
+        playerControl.StartRace();
         startTime = Time.time;
     }
+    
+    [ContextMenu("End Race")]
     public void EndRace()
     {
         endTime = Time.time;
-        highscore = (startTime - endTime) * 10;
+        highscore = (endTime - startTime) * 100;
+        Destroy(player);
 
         playerControl.EndRace(highscore);
     }

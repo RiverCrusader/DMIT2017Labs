@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class GhostDataPlayer : MonoBehaviour
 {
@@ -8,23 +9,29 @@ public class GhostDataPlayer : MonoBehaviour
     GhostData ghostData;
 
     public GameObject ghostRacer;
+    int frameCount = 0;
 
     public void RetrieveGhostData(GhostData ghostData_, Color colour_)
     {
-        ghostData = ghostData_;
+        foreach(GhostDataFrame tmp in ghostData_.ghostDataFrames)
+        {
+            ghostData.AddFrame(tmp.position, tmp.rotation);
+        }
 
         colour_.a = 0.5f;
-        ghostRacer.GetComponent<Renderer>().material.color = colour_;
+        
+        //ghostRacer.GetComponentInChildren<Renderer>().material.color = colour_;
     }
 
     void FixedUpdate()
     {
         if(ghostData != null)
         {
-            foreach(GhostDataFrame tmp in ghostData.ghostDataFrames)
+            if(ghostData.ghostDataFrames.Count > 0 && ghostData.ghostDataFrames.Count > frameCount)
             {
-                transform.position = tmp.position;
-                transform.eulerAngles = tmp.rotation;
+                transform.position = ghostData.ghostDataFrames[frameCount].position;
+                transform.eulerAngles = ghostData.ghostDataFrames[frameCount].rotation;
+                frameCount++; 
             }
         }
     }

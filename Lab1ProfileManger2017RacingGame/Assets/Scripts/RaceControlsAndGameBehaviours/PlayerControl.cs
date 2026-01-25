@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour
     public List<GameObject> mounts = new List<GameObject>();
     public string mountType;
     public GameObject playerSpawnPoint;
+    GameObject instance;
     public Material mountColour;
 
     PhysicsMovement physMove;
@@ -37,17 +38,22 @@ public class PlayerControl : MonoBehaviour
             mountType = "Dragon";
         }
 
+        ghostDataRecorder = instance.GetComponent<GhostDataRecorder>();
         ghostDataRecorder.StartRecording();
 
     }
     void FixedUpdate()
     {
-        
+        // if(instance != null)
+        // {
+        //     transform.Translate(instance.transform.position);
+        //     transform.Rotate(instance.transform.eulerAngles);
+        // }
     }
 
     public void SpawnMount(int mountchoice_)
     {
-        GameObject instance = Instantiate(mounts[mountchoice_], transform, false);
+        instance = Instantiate(mounts[mountchoice_], transform, false);
 
         if(instance != null)
         {

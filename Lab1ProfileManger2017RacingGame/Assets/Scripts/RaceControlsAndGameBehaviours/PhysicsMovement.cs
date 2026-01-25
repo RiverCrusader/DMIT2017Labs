@@ -32,7 +32,7 @@ public class PhysicsMovement : MonoBehaviour
 
     const float ACCELORATION_FACTOR = 15.0f;
     const float BRAKE_FACTOR = 15.0f;
-    const float STEER_FACTOR = 20.0f;
+    const float STEER_FACTOR = 30.0f;
     const float JUMP_FORCE = 2000.0f;
 
     PlayerControl playerControl;
@@ -45,7 +45,7 @@ public class PhysicsMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        float currentSpeed = rb.linearVelocity.magnitude;
+        
         playerControl = GetComponentInParent<PlayerControl>();
 
         acceloration.Enable();
@@ -96,6 +96,8 @@ public class PhysicsMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        float currentSpeed = rb.linearVelocity.magnitude;
+
         if (accelorationValue > 0f)
         {
             rb.AddForce(transform.forward * accelorationValue, ForceMode.Acceleration);
@@ -107,7 +109,7 @@ public class PhysicsMovement : MonoBehaviour
         }
 
         // && mount == mount.MountChoice.Dragon
-        if(jumpValue > 0f && canJump && grounded)
+        if(jumpValue > 0f /*&& canJump && grounded*/ )
         {
             rb.AddForce(transform.up * jumpValue, ForceMode.Force);
         }
