@@ -5631,6 +5631,7 @@ MonoBehaviour:
   steerValue: 0
   jumpValue: 0
   currentSpeed: 0
+  currentMaxSpeed: 0
   maxSpeed: 50
   offRoadMaxSpeed: 35
 --- !u!1001 &220217695
@@ -16471,7 +16472,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 751656838}
-  - component: {fileID: 751656837}
   - component: {fileID: 751656839}
   m_Layer: 0
   m_Name: SaveSystem
@@ -16480,20 +16480,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &751656837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751656836}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6b002bff736fd4ab303637cd7de5ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SaveSystem
-  filePath: Assets/Resources/saveData.csv
-  saveDataList: []
 --- !u!4 &751656838
 Transform:
   m_ObjectHideFlags: 0

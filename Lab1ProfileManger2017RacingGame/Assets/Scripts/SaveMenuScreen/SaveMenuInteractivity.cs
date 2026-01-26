@@ -99,7 +99,7 @@ public class SaveMenuInteractivity : MonoBehaviour
     {
         jsonSave.LoadData(profileName);
 
-        file = jsonSave.filePath + profileName + ".json";
+        file = Application.persistentDataPath + "/" + jsonSave.filePath + profileName + ".json";
 
         if(File.Exists(file))
         {
@@ -134,7 +134,7 @@ public class SaveMenuInteractivity : MonoBehaviour
 
     public void DeleteSaveButton()
     {
-        file = jsonSave.filePath + profileName + ".json";
+        file = Application.persistentDataPath + "/" + jsonSave.filePath + profileName + ".json";
 
         if(!File.Exists(file))
         {
@@ -170,6 +170,7 @@ public class SaveMenuInteractivity : MonoBehaviour
     public void EndRace()
     {
         deletionConfirmation.text = "Press Save to Save Ghost Data";
+        deletionConfirmation.enabled = true;
         canvas.SetActive(true);
         UICam.enabled = true;
     }
