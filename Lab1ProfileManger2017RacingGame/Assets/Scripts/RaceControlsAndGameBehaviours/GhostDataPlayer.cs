@@ -6,10 +6,10 @@ using Unity.VisualScripting;
 public class GhostDataPlayer : MonoBehaviour
 {
     GameManager gameManager;
-    GhostData ghostData;
-
     public GameObject ghostRacer;
-    int frameCount = 0;
+    public GhostData ghostData = new GhostData();
+    
+    public int frameCount = 0;
 
     public void RetrieveGhostData(GhostData ghostData_, Color colour_)
     {
@@ -18,6 +18,7 @@ public class GhostDataPlayer : MonoBehaviour
             ghostData.AddFrame(tmp.position, tmp.rotation);
         }
 
+        frameCount = 0;
         colour_.a = 0.5f;
         
         //ghostRacer.GetComponentInChildren<Renderer>().material.color = colour_;

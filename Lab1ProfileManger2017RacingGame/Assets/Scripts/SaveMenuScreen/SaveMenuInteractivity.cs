@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-// using System.Linq;
 using TMPro;
 using UnityEngine;
-// using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.IO;
 
@@ -45,6 +43,7 @@ public class SaveMenuInteractivity : MonoBehaviour
         loadSaveButton.interactable = false;
         deleteSaveButton.interactable = false;
 
+        colourChoice = fcp.color;
 
         profileName = "";
     }
@@ -172,6 +171,7 @@ public class SaveMenuInteractivity : MonoBehaviour
     public void EndRace()
     {
         canvas.SetActive(true);
+        UICam.enabled = true;
     }
     public void ExitGame()
     {

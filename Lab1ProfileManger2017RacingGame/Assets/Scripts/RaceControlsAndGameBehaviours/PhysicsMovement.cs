@@ -27,13 +27,14 @@ public class PhysicsMovement : MonoBehaviour
 
 
     public float currentSpeed;
+    public float currentMaxSpeed;
     public float maxSpeed;
     public float offRoadMaxSpeed;
 
     const float ACCELORATION_FACTOR = 15.0f;
     const float BRAKE_FACTOR = 15.0f;
     const float STEER_FACTOR = 30.0f;
-    const float JUMP_FORCE = 2000.0f;
+    const float JUMP_FORCE = 30.0f;
 
     PlayerControl playerControl;
     bool canJump = false;
@@ -51,6 +52,7 @@ public class PhysicsMovement : MonoBehaviour
         acceloration.Enable();
         brake.Enable();
         steering.Enable();
+        jump.Enable();
 
 
         acceloration.performed += AccelorationInput;
@@ -109,7 +111,7 @@ public class PhysicsMovement : MonoBehaviour
         }
 
         // && mount == mount.MountChoice.Dragon
-        if(jumpValue > 0f /*&& canJump && grounded*/ )
+        if(jumpValue > 0f && canJump && grounded)
         {
             rb.AddForce(transform.up * jumpValue, ForceMode.Force);
         }
@@ -121,9 +123,9 @@ public class PhysicsMovement : MonoBehaviour
             transform.Rotate(0f, steerAmount * Time.fixedDeltaTime, 0f);
         }
 
-        if (currentSpeed > maxSpeed)
+        if (currentSpeed > currentMaxSpeed)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * currentMaxSpeed;
         }
 
         if (currentSpeed <= 0 && brakeValue > 0f)
@@ -140,17 +142,26 @@ public class PhysicsMovement : MonoBehaviour
     private IEnumerator BoostTimer(float boost_, float duraction_)
     {
         currentSpeed += boost_;
-        maxSpeed += boost_ * 2;
+        currentMaxSpeed += boost_ * 2;
 
         yield return new WaitForSeconds(duraction_);
 
         currentSpeed -= boost_;
-        maxSpeed -= boost_ * 2;
+        currentMaxSpeed -= boost_ * 2;
     }
 
     void OnTriggerEnter(Collider other)
     {
         grounded = true;
+
+        if(other.CompareTag("Ground"))
+        {
+            currentMaxSpeed = maxSpeed;
+        }
+        if(other.CompareTag("OffRoad"))
+        {
+            currentMaxSpeed = offRoadMaxSpeed;
+        }
     }
     void OnTriggerExit(Collider other)
     {

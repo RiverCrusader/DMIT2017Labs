@@ -1,13 +1,12 @@
 using UnityEngine;
 using System.IO;
-using UnityEditor.Build.Content;
 
 public class JsonSaveSystem : MonoBehaviour
 {
     public string filePath;
     string file;
     public SaveProfile profileData;
-    bool fileExists = false;
+    //bool fileExists = false;
   
 
     [ContextMenu("JSON Save")]
@@ -30,7 +29,7 @@ public class JsonSaveSystem : MonoBehaviour
 
         if (File.Exists(file))
         {
-            fileExists = true;
+            //fileExists = true;
             string json = File.ReadAllText(file);
 
             profileData = JsonUtility.FromJson<SaveProfile>(json);
@@ -38,7 +37,7 @@ public class JsonSaveSystem : MonoBehaviour
         else
         {
             Debug.Log("Save file not found");
-            fileExists = false;
+            //fileExists = false;
         }
     }
 
@@ -48,12 +47,12 @@ public class JsonSaveSystem : MonoBehaviour
 
         if(File.Exists(file))
         {
-            fileExists = true;
+            //fileExists = true;
             File.Delete(file);
         }
         else
         {
-            fileExists = false;
+            //fileExists = false;
             Debug.Log("Save file not found");
         }
     }
