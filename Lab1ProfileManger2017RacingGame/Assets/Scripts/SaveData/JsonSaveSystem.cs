@@ -15,7 +15,7 @@ public class JsonSaveSystem : MonoBehaviour
     {
         SaveProfile saveProfile = new SaveProfile(profileName_, highScore_, colour_, mountType_, ghostData_);
 
-        file = Application.persistentDataPath + "/" + filePath + profileName_ + ".json";
+        file = Application.persistentDataPath + "/" /*+ filePath */ + profileName_ + ".json";
 
         string json = JsonUtility.ToJson(saveProfile, true);
 
@@ -26,7 +26,7 @@ public class JsonSaveSystem : MonoBehaviour
 
     public void LoadData(string profileName_)
     {
-        file = Application.persistentDataPath + "/" +  filePath + profileName_ + ".json";
+        file = Application.persistentDataPath + "/" /*+ filePath */ + profileName_ + ".json";
 
         if (File.Exists(file))
         {
@@ -44,7 +44,7 @@ public class JsonSaveSystem : MonoBehaviour
 
     public void DeleteData(string profileName_)
     {
-        file = Application.persistentDataPath + "/" + filePath + profileName_ + ".json";
+        file = Application.persistentDataPath + "/"/*+ filePath */ + profileName_ + ".json";
 
         if(File.Exists(file))
         {

@@ -99,7 +99,7 @@ public class SaveMenuInteractivity : MonoBehaviour
     {
         jsonSave.LoadData(profileName);
 
-        file = Application.persistentDataPath + "/" + jsonSave.filePath + profileName + ".json";
+        file = Application.persistentDataPath + "/" /*+ jsonSave.filePath */+ profileName + ".json";
 
         if(File.Exists(file))
         {
@@ -134,7 +134,7 @@ public class SaveMenuInteractivity : MonoBehaviour
 
     public void DeleteSaveButton()
     {
-        file = Application.persistentDataPath + "/" + jsonSave.filePath + profileName + ".json";
+        file = Application.persistentDataPath + "/"/*+ jsonSave.filePath */ + profileName + ".json";
 
         if(!File.Exists(file))
         {
