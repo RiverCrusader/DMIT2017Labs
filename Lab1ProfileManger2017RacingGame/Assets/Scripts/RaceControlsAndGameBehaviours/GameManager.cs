@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         Destroy(player);
 
         ghostPlayer = GameObject.FindGameObjectWithTag("GhostPlayer");
+        Destroy(ghostPlayer);
 
         playerControl.EndRace(highscore);
     }

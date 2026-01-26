@@ -126,7 +126,6 @@ public class SaveMenuInteractivity : MonoBehaviour
         }
         else
         {
-            
             deletionConfirmation.text = "Profile Dosnt Exist";
             deletionConfirmation.fontStyle = FontStyles.Bold;
             deletionConfirmation.enabled = true;
@@ -170,6 +169,7 @@ public class SaveMenuInteractivity : MonoBehaviour
     }
     public void EndRace()
     {
+        deletionConfirmation.text = "Press Save to Save Ghost Data";
         canvas.SetActive(true);
         UICam.enabled = true;
     }
