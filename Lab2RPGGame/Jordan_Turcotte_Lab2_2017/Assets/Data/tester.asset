@@ -16,5 +16,5 @@ MonoBehaviour:
   mapName: Tester
   mapID: 1
   entryPoints:
-  - entryPointID: 1
+  - entryPointID: 0
     cell: {x: 4, y: -2, z: 0}

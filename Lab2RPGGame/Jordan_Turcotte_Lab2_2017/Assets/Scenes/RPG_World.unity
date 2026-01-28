@@ -613,6 +613,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3634135404166114006, guid: 388075a51df12c44e9c08a9004206013, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634135404166114006, guid: 388075a51df12c44e9c08a9004206013, type: 3}
+      propertyPath: m_UseDelaunayMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7697901964293378229, guid: 388075a51df12c44e9c08a9004206013, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66
