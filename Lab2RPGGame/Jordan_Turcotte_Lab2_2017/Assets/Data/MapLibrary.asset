@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MapLibrary
   m_EditorClassIdentifier: Assembly-CSharp::MapLibrary
   mapLibrary:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 131c75dbaff57194ea8ab76fb38fa64f, type: 2}
+  - {fileID: 11400000, guid: 7ebe81cbc6ce1884c8dc696a51b7d456, type: 2}

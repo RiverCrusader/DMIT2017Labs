@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c4009ee0224df4b8e0a6372cabceae, type: 3}
-  m_Name: OverWorld
+  m_Name: tester
   m_EditorClassIdentifier: Assembly-CSharp::GameMap
-  prefab: {fileID: 758736246375481806, guid: 388075a51df12c44e9c08a9004206013, type: 3}
-  mapName: OverWorld
-  mapID: 0
+  prefab: {fileID: 5337408678861667422, guid: 75a413336ab5a5b4f8170384130705c0, type: 3}
+  mapName: Tester
+  mapID: 1
   entryPoints:
-  - entryPointID: 0
-    cell: {x: -77, y: -17, z: 0}
+  - entryPointID: 1
+    cell: {x: 4, y: -2, z: 0}
