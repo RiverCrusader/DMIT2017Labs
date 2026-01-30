@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c4009ee0224df4b8e0a6372cabceae, type: 3}
-  m_Name: tester
+  m_Name: MagicHouse
   m_EditorClassIdentifier: Assembly-CSharp::GameMap
-  prefab: {fileID: 5337408678861667422, guid: 75a413336ab5a5b4f8170384130705c0, type: 3}
-  mapName: Tester
+  prefab: {fileID: 5640113702841911689, guid: cd163d3e86c974846bfd3d248c57dd64, type: 3}
+  mapName: Magic House
   mapID: 1
   entryPoints:
   - entryPointID: 0
-    cell: {x: 4, y: -2, z: 0}
+    cell: {x: 72, y: 102, z: 0}

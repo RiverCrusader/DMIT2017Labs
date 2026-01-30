@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class MapNavigation : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class MapNavigation : MonoBehaviour
     [SerializeField] private Transform mapParent;
     private Dictionary<int, MapData> mapDictionary = new Dictionary<int, MapData>();
     [SerializeField] private GameObject currentMap;
+    public UnityEvent OnMapEnter;
+
     private void Awake()
     {
         if(Instance == null) Instance = this;
@@ -43,6 +46,9 @@ public class MapNavigation : MonoBehaviour
         Grid g = mapParent.GetComponent<Grid>();
         //need to convert from grid space to world space
         player.position = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[portalID].cell);
+
+        //trigger fade in and out
+        OnMapEnter?.Invoke();
     }
 }
 
