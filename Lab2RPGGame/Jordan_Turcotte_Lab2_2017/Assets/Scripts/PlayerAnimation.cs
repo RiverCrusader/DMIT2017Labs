@@ -1,113 +1,76 @@
-using NUnit.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
+[RequireComponent(typeof(SpriteAnimation))]
 public class PlayerAnimation : MonoBehaviour
 {
     public List<AnimationStateData> animationStates = new List<AnimationStateData>();
-    private SpriteRenderer spriteRenderer;
     private Dictionary<PlayerAnimationState, AnimationData> animationDictionary = new Dictionary<PlayerAnimationState, AnimationData>();
-    bool isPlaying = false;
-    public PlayerAnimationState currentState = PlayerAnimationState.IDLE_DOWN;
+    private SpriteAnimation spriteAnimator;
+    public PlayerAnimationState currentState;
     public void Start()
     {
+        currentState = PlayerAnimationState.IDLE_DOWN;
         InitializeDictionary();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
+        spriteAnimator = GetComponent<SpriteAnimation>();
         TopDownPlayerMovement topDownPlayerMovement = GetComponent<TopDownPlayerMovement>();
         topDownPlayerMovement.OnMove += SetAnimationState;
     }
-
-    public void InitializeAnimation(AnimationData animation)
-    {
-        StopAllCoroutines();
-        StartCoroutine(PlayAnimation(animation));
-    }
-
     public void SetAnimationState(Vector2 moveDirection)
     {
         if(moveDirection == Vector2.zero)
         {
             currentState = GetIdleState(currentState);
         }
-
         if(moveDirection.y < 0)
         {
             currentState = PlayerAnimationState.WALK_DOWN;
-            InitializeAnimation(animationDictionary[PlayerAnimationState.WALK_DOWN]);
         }
         else if(moveDirection.y > 0)
         {
             currentState = PlayerAnimationState.WALK_UP;
-            InitializeAnimation(animationDictionary[PlayerAnimationState.WALK_UP]);
         }
-        if(moveDirection.x < 0)
+
+        else if (moveDirection.x < 0)
         {
             currentState = PlayerAnimationState.WALK_LEFT;
-            InitializeAnimation(animationDictionary[PlayerAnimationState.WALK_LEFT]);
         }
+
         else if(moveDirection.x > 0)
         {
             currentState = PlayerAnimationState.WALK_RIGHT;
-            InitializeAnimation(animationDictionary[PlayerAnimationState.WALK_RIGHT]);
         }
-
-        
-        //idle check
-        
-
-        // create animation assets for remaining walk cycles
-
-        // call InitializeAnimation based on the direction the player is moving
-        
+        spriteAnimator.InitializeAnimation(animationDictionary[currentState]);
 
     }
-
-    public PlayerAnimationState GetIdleState(PlayerAnimationState _currentState)
+    public PlayerAnimationState GetIdleState(PlayerAnimationState currentState)
     {
         PlayerAnimationState tmp = PlayerAnimationState.IDLE_DOWN;
-        switch(_currentState)
+        switch (currentState)
         {
-            case PlayerAnimationState.WALK_UP:
-                tmp = PlayerAnimationState.IDLE_UP;
-                break;
             case PlayerAnimationState.WALK_DOWN:
                 tmp = PlayerAnimationState.IDLE_DOWN;
                 break;
-            case PlayerAnimationState.WALK_LEFT:
-                tmp = PlayerAnimationState.IDLE_LEFT;
+            case PlayerAnimationState.WALK_UP:
+                tmp = PlayerAnimationState.IDLE_UP;
                 break;
             case PlayerAnimationState.WALK_RIGHT:
                 tmp = PlayerAnimationState.IDLE_RIGHT;
                 break;
+            case PlayerAnimationState.WALK_LEFT:
+                tmp = PlayerAnimationState.IDLE_LEFT;
+                break;
+            default:
+                tmp = PlayerAnimationState.IDLE_DOWN;
+                break;
+
+
         }
+
         return tmp;
     }
 
-    private IEnumerator PlayAnimation(AnimationData animation)
-    {
-        isPlaying = true;
-        spriteRenderer.sprite = animation.frames[0];
-        int frameCount = animation.frames.Length;
-        int frameIndex = 0;
-
-        while (isPlaying)
-        {
-            yield return new WaitForSeconds(animation.frameDelay);
-            frameIndex++;
-            if(frameIndex >= frameCount) { frameIndex = 0; }
-            spriteRenderer.sprite = animation.frames[frameIndex];
-
-            yield return null;
-        }
-
-        yield return null;
-    }
-
-    public void StopAnimation() { isPlaying = false; }
     public void InitializeDictionary()
     {
         foreach (AnimationStateData animationStateData in animationStates)
