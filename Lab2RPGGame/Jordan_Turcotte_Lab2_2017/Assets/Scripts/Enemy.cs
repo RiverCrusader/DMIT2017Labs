@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AIMovement))]
 public abstract class Enemy : MonoBehaviour
 {
     public string enemyName;
@@ -16,36 +17,69 @@ public abstract class Enemy : MonoBehaviour
 
     public Vector2 playerPosition;
 
+    public Vector2 patrolRange;
+    private Vector2 startingPos;
+    private Vector2 nextPos;
+    private AIMovement aIMovement;
+    private bool patroling;
+
     private Coroutine attackCoroutine;
 
     private void Awake()
     {
         sightline.OnOverlap += SetPlayerPosition;
         attackRange.OnOverlap += SetPlayerPosition;
+
+        aIMovement = GetComponent<AIMovement>();
+        aIMovement.OnArrive += Patrol;
     }
 
     public void SetPlayerPosition(Vector2 pos_)
     {
         playerPosition = pos_;
     }
-    public abstract void Patrol();
+
+    [ContextMenu("Patrol")]
+    public void Patrol()
+    {
+        nextPos = new Vector2(Random.Range(startingPos.x - patrolRange.x, startingPos.x + patrolRange.x),
+                                Random.Range(startingPos.y - patrolRange.y, startingPos.y + patrolRange.y));
+
+        aIMovement.InitalizeMovement(nextPos);
+    }
+
     public abstract void Attack();
     public abstract void TakeDamage(float dmg_);
     public abstract void Die();
-    public abstract void Pursue();
+    public void Pursue()
+    {
+        aIMovement.InitalizeMovement(playerPosition);
+    }
 
     private void Update()
     {
+        if (attackRange.CircleOverlapCheck())
+        {
+            aIMovement.StopMovement();
+            StartAttackCoroutine();
+
+            return;
+        }
+
         if (sightline.CircleOverlapCheck())
         {
             Pursue();
+
+            return;
         }
 
-        if (attackRange.CircleOverlapCheck())
+        if (!patroling)
         {
-            StartAttackCoroutine();
+            Patrol();
+            patroling = true;
         }
     }
+
     public void StartAttackCoroutine()
     {
         if(attackCoroutine == null) attackCoroutine = StartCoroutine(AttackCoroutine());

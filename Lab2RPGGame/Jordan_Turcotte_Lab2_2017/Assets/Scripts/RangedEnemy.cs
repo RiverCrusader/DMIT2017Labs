@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RangedEnemy : Enemy
@@ -12,7 +13,11 @@ public class RangedEnemy : Enemy
 
         GameObject obj = Instantiate(projectilePrefab, projectileSpawnLocation.position, Quaternion.identity);
         SimpleProjectile projectile = obj.GetComponent<SimpleProjectile>();
-        projectile.InstantiateProjectile(new Vector2(playerPosition.x, -playerPosition.y).normalized);
+
+        float directionX = playerPosition.x - transform.position.x;
+        float directionY = playerPosition.y - transform.position.y;
+
+        projectile.InstantiateProjectile(new Vector2(directionX, directionY).normalized);
     }
 
     public override void Die()
@@ -20,14 +25,15 @@ public class RangedEnemy : Enemy
         throw new System.NotImplementedException();
     }
 
-    public override void Patrol()
-    {
-        throw new System.NotImplementedException();
-    }
+    // public override void Patrol()
+    // {
+    //     throw new System.NotImplementedException();
+    // }
 
-    public override void Pursue()
-    {
-    }
+    // public override void Pursue()
+    // {
+        
+    // }
 
     public override void TakeDamage(float dmg_)
     {

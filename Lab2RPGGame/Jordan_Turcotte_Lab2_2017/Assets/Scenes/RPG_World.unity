@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8809ed3f0ff2b6243b60dc84bf6dd7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CircleOverlap
-  radius: 12
+  radius: 8
   tagToCheck: Player
   color: {r: 1, g: 0, b: 0.9880781, a: 1}
 --- !u!1 &1029570993
@@ -793,6 +793,8 @@ GameObject:
   - component: {fileID: 2124333128}
   - component: {fileID: 2124333129}
   - component: {fileID: 2124333130}
+  - component: {fileID: 2124333131}
+  - component: {fileID: 2124333132}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -897,8 +899,50 @@ MonoBehaviour:
   sightline: {fileID: 688606773}
   attackRange: {fileID: 2135560227}
   playerPosition: {x: 0, y: 0}
+  patrolRange: {x: -40, y: 25}
   projectilePrefab: {fileID: 4396063424556252340, guid: 042ad72343f3fe14ea9fb900ace1aa0a, type: 3}
   projectileSpawnLocation: {fileID: 1029570994}
+--- !u!114 &2124333131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124333127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fe8faa419444d45a0a92baeafdbc41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIMovement
+  range: 0.5
+  moveSpeed: 1
+--- !u!50 &2124333132
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124333127}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2135560225
 GameObject:
   m_ObjectHideFlags: 0
