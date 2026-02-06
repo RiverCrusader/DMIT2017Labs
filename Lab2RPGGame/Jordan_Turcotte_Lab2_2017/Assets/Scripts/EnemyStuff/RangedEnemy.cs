@@ -35,10 +35,10 @@ public class RangedEnemy : Enemy
         
     // }
 
-    public override void TakeDamage(float dmg_)
-    {
-        throw new System.NotImplementedException();
-    }
+    // public override void TakeDamage(float dmg_)
+    // {
+    //     throw new System.NotImplementedException();
+    // }
 
    
 }

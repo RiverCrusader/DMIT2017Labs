@@ -6,7 +6,7 @@ public abstract class Enemy : MonoBehaviour
 {
     public string enemyName;
     
-    public int HP;
+    public float HP;
     public int ATK;
     public int DEF;
 
@@ -42,6 +42,7 @@ public abstract class Enemy : MonoBehaviour
     [ContextMenu("Patrol")]
     public void Patrol()
     {
+        //should base the patrol range on the starting pos
         nextPos = new Vector2(Random.Range(startingPos.x - patrolRange.x, startingPos.x + patrolRange.x),
                                 Random.Range(startingPos.y - patrolRange.y, startingPos.y + patrolRange.y));
 
@@ -49,7 +50,10 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public abstract void Attack();
-    public abstract void TakeDamage(float dmg_);
+    public void TakeDamage(float dmg_)
+    {
+        HP -= dmg_;
+    }
     public abstract void Die();
     public void Pursue()
     {
@@ -69,6 +73,7 @@ public abstract class Enemy : MonoBehaviour
         if (sightline.CircleOverlapCheck())
         {
             Pursue();
+            
 
             return;
         }
@@ -86,11 +91,12 @@ public abstract class Enemy : MonoBehaviour
     }
     public IEnumerator AttackCoroutine()
     {
-        while (true)
+        while (attackRange.CircleOverlapCheck())
         {
             Attack();
             yield return new WaitForSeconds(attackDelay);
         }
+        attackCoroutine = null;
         //yield return null;
     }
 

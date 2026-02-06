@@ -129,8 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMap: 1
   targetEntryPoint: 0
-  cellSize: []
-  cellSizeType: 0
+  cellSizeType: {x: 0.32, y: 0.32, z: 0.32}
+  scale: {x: 1.5, y: 1.5, z: 1.5}
 --- !u!1 &1260591561748630678
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMap: 1
   targetEntryPoint: 0
-  cellSize: []
-  cellSizeType: 0
+  cellSizeType: {x: 0.32, y: 0.32, z: 0.32}
+  scale: {x: 1.5, y: 1.5, z: 1.5}
 --- !u!1 &1682188266813899908
 GameObject:
   m_ObjectHideFlags: 0
