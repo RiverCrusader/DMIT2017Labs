@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 593222497179935243}
   - component: {fileID: 6587691711182635555}
   - component: {fileID: 1898796632868107840}
+  - component: {fileID: 6865876182839023346}
   m_Layer: 0
   m_Name: --CHARACTER--
   m_TagString: Player
@@ -167,7 +168,7 @@ Transform:
   m_GameObject: {fileID: 5809601082940746511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4, y: 0.57, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -398,3 +399,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6865876182839023346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5809601082940746511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7424429b8a0de43b96f5d1f56f041e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimation

@@ -49,6 +49,8 @@ public class MapNavigation : MonoBehaviour
         //need to convert from grid space to world space
         player.position = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[portalID].cell);
 
+        //GameStateManager.Instance.SpawnMap
+
         //trigger fade in and out
         OnMapEnter?.Invoke();
     }

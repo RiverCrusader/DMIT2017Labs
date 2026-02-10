@@ -5,8 +5,9 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public string enemyName;
+    public int enemyID;
     
-    public float HP;
+    public int HP;
     public int ATK;
     public int DEF;
 
@@ -50,7 +51,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public abstract void Attack();
-    public void TakeDamage(float dmg_)
+    public void TakeDamage(int dmg_)
     {
         HP -= dmg_;
     }
