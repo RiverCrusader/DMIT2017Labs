@@ -39,8 +39,9 @@ public class MapNavigation : MonoBehaviour
         // instantiate the new map under the corresponding parent
         // move the player to the designated cell
 
-
+        GameStateManager.Instance.SaveGameState();
         Destroy(currentMap);
+        //need to call enemyspawner clear enimes
 
         currentMap = Instantiate(mapDictionary[mapID].prefab, mapParent);
         Grid g = mapParent.GetComponent<Grid>();
@@ -48,6 +49,7 @@ public class MapNavigation : MonoBehaviour
         player.localScale = characterScale_;
         //need to convert from grid space to world space
         player.position = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[portalID].cell);
+        GameStateManager.Instance.InitializeMap(mapID);
 
         //GameStateManager.Instance.SpawnMap
 

@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+
+[CreateAssetMenu(fileName = "EnemyDatabase", menuName = "Scriptable Objects/Enemy Database")]
+public class EnemyDatabase : ScriptableObject
+{
+    public List<EnemySpawnData> enemies;
+    private Dictionary<int, EnemySO> lookup;
+
+    public void BuildLookup()
+    {
+        lookup = new Dictionary<int, EnemySO>();
+
+        foreach(EnemySpawnData enemy in enemies)
+        {
+            lookup.Add(enemy.enemyID, enemy.enemySO);
+        }
+    }
+
+    public EnemySO Get(int id)
+    {
+        if (lookup == null) BuildLookup();
+        return lookup[id];
+    }
+}
+
+
+public class EnemySpawnData
+{
+    public EnemySO enemySO;
+    public int enemyID;
+}
