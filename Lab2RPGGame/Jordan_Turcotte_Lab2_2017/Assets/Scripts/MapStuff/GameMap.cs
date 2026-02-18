@@ -9,8 +9,6 @@ public class GameMap : ScriptableObject
     public string mapName;
     public int mapID;
     public List<MapEntryPoint> entryPoints; 
-
-
 }
 
 [Serializable]
