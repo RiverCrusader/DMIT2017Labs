@@ -10,17 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c4009ee0224df4b8e0a6372cabceae, type: 3}
-  m_Name: OverWorld
+  m_Name: Garden_Maze
   m_EditorClassIdentifier: Assembly-CSharp::GameMap
-  prefab: {fileID: 758736246375481806, guid: 388075a51df12c44e9c08a9004206013, type: 3}
-  mapName: OverWorld
-  mapID: 0
+  prefab: {fileID: 8657027529788527769, guid: 1abb27ed29697a245a3a81bf259d0b32, type: 3}
+  mapName: GardenHedges
+  mapID: 4
   entryPoints:
   - entryPointID: 0
-    cell: {x: -77, y: -2, z: 0}
-  - entryPointID: 1
-    cell: {x: -40, y: 2, z: 0}
-  - entryPointID: 2
-    cell: {x: -45, y: 34, z: 0}
-  - entryPointID: 3
-    cell: {x: -45, y: 34, z: 0}
+    cell: {x: 3, y: -50, z: 0}
