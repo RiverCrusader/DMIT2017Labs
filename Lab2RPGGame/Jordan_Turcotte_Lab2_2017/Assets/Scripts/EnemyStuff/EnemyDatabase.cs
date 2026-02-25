@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +28,7 @@ public class EnemyDatabase : ScriptableObject
 }
 
 
+[Serializable]
 public class EnemySpawnData
 {
     public EnemySO enemySO;

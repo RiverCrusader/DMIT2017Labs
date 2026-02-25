@@ -23,4 +23,4 @@ MonoBehaviour:
   - entryPointID: 2
     cell: {x: -45, y: 34, z: 0}
   - entryPointID: 3
-    cell: {x: -45, y: 34, z: 0}
+    cell: {x: -23, y: 32, z: 0}

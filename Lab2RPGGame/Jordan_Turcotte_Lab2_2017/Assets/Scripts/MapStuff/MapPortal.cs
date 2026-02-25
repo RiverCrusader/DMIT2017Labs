@@ -14,6 +14,7 @@ public class MapPortal : MonoBehaviour
         if (collision.gameObject.tag != "Player") return;
 
         MapNavigation.Instance.GoToMap(targetMap, targetEntryPoint, cellSizeType, scale);
+        
 
         //make a switch for cell sized that takes cell sixe type
     }

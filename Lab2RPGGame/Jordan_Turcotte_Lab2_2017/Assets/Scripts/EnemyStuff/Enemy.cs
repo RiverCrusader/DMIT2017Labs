@@ -33,6 +33,8 @@ public abstract class Enemy : MonoBehaviour
 
         aIMovement = GetComponent<AIMovement>();
         aIMovement.OnArrive += Patrol;
+
+        startingPos = transform.position;
     }
 
     public void SetPlayerPosition(Vector2 pos_)
@@ -53,7 +55,7 @@ public abstract class Enemy : MonoBehaviour
     public abstract void Attack();
     public void TakeDamage(int dmg_)
     {
-        HP -= dmg_;
+        HP -= (dmg_ - DEF);
     }
     public abstract void Die();
     public void Pursue()

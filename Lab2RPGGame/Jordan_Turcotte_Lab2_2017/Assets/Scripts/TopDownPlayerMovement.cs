@@ -16,8 +16,6 @@ public class TopDownPlayerMovement : MonoBehaviour
 
         moveInput.performed += GetMoveVector;
         moveInput.canceled += GetMoveVector;
-
-
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
