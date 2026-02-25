@@ -10,6 +10,7 @@ public class PlayerAnimation : MonoBehaviour
     private SpriteAnimation spriteAnimator;
     public PlayerAnimationState currentState;
     public event Action<PlayerAnimationState> OnAnimationStateUpdate;
+    
     public void Start()
     {
         currentState = PlayerAnimationState.IDLE_DOWN;
@@ -42,7 +43,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             currentState = PlayerAnimationState.WALK_RIGHT;
         }
-        
+
         spriteAnimator.InitializeAnimation(animationDictionary[currentState]);
         OnAnimationStateUpdate?.Invoke(currentState);
 

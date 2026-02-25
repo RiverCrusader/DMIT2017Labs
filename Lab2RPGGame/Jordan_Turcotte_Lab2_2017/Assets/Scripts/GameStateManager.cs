@@ -12,9 +12,12 @@ public class GameStateManager : MonoBehaviour
     private int currentMapID;
     private MapState currentMapState;
 
+    private Heal heal;
+
     private void Awake()
     {
         Instance = this;
+        heal.OnHeal += ResetEnemies;
     }
     private void Start()
     {

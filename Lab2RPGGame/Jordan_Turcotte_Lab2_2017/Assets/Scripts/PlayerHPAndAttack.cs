@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 public class PlayerHPAndAttack : MonoBehaviour
 {
     public int HP;
+    public int maxHP;
     public int ATK;
     public int DEF;
+    private Heal heal;
 
     public InputAction atkAction;
     void Awake()
@@ -14,6 +16,8 @@ public class PlayerHPAndAttack : MonoBehaviour
 
         atkAction.performed += ATKEnemy;
         atkAction.canceled -= ATKEnemy;
+
+        heal.OnHeal += Heal;
     }
 
     public void ATKEnemy(InputAction.CallbackContext c)
@@ -29,5 +33,9 @@ public class PlayerHPAndAttack : MonoBehaviour
     public void TakeDamage(int dmg_)
     {
         HP -= (dmg_ - DEF);
+    }
+    public void Heal()
+    {
+        HP = maxHP;
     }
 }
