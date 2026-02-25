@@ -7,7 +7,7 @@ public class PlayerHPAndAttack : MonoBehaviour
     public int maxHP;
     public int ATK;
     public int DEF;
-    private Heal heal;
+    public Heal heal;
 
     public InputAction atkAction;
     void Awake()

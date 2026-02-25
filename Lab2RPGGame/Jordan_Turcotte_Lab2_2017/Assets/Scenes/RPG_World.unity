@@ -457,6 +457,7 @@ MonoBehaviour:
         currentHP: 15
         maxHP: 15
   mapParent: {fileID: 1502424786}
+  heal: {fileID: 712549271}
 --- !u!4 &861683139
 Transform:
   m_ObjectHideFlags: 0
@@ -894,13 +895,21 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2064065472346698325, guid: ecd6189a2e8a5e34c9f2b9edf493c136, type: 3}
+      propertyPath: heal
+      value: 
+      objectReference: {fileID: 712549271}
+    - target: {fileID: 2064065472346698325, guid: ecd6189a2e8a5e34c9f2b9edf493c136, type: 3}
+      propertyPath: maxHP
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 2269072604085123205, guid: ecd6189a2e8a5e34c9f2b9edf493c136, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2269072604085123205, guid: ecd6189a2e8a5e34c9f2b9edf493c136, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2269072604085123205, guid: ecd6189a2e8a5e34c9f2b9edf493c136, type: 3}
       propertyPath: m_LocalScale.z
