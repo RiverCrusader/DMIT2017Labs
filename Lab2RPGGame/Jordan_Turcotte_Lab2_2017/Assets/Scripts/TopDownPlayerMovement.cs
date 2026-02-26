@@ -48,7 +48,7 @@ public class TopDownPlayerMovement : MonoBehaviour
     {
         moveDirection = c.ReadValue<Vector2>();
 
-        if(moveDirection.x > 0 || moveDirection.y > 0)
+        if(moveDirection.x != 0 || moveDirection.y != 0)
         {
             isWalking = true;
         }

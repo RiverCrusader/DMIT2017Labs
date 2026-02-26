@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AIMovement))]
@@ -56,8 +57,21 @@ public abstract class Enemy : MonoBehaviour
     public void TakeDamage(int dmg_)
     {
         HP -= (dmg_ - DEF);
+
+        if(HP <= 0)
+        {
+            Die();
+        }
+        else if(!gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+        }
     }
-    public abstract void Die();
+    public void Die()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void Pursue()
     {
         aIMovement.InitalizeMovement(playerPosition);

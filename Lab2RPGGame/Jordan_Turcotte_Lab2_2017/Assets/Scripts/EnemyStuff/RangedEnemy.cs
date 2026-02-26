@@ -19,26 +19,5 @@ public class RangedEnemy : Enemy
 
         projectile.InstantiateProjectile(new Vector2(directionX, directionY).normalized);
     }
-
-    public override void Die()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    // public override void Patrol()
-    // {
-    //     throw new System.NotImplementedException();
-    // }
-
-    // public override void Pursue()
-    // {
-        
-    // }
-
-    // public override void TakeDamage(float dmg_)
-    // {
-    //     throw new System.NotImplementedException();
-    // }
-
    
 }
