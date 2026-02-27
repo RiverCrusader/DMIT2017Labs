@@ -15,7 +15,7 @@ public class TopDownPlayerMovement : MonoBehaviour
     public int maxHP;
     public int ATK;
     public int DEF;
-    public Heal heal;
+    private Heal heal;
 
     public InputAction atkAction;
 
@@ -26,9 +26,6 @@ public class TopDownPlayerMovement : MonoBehaviour
     private bool isAttacking = false;
     public float atkDuration;
     private float atkTimer;
-
-    public float treasureCount;
-
     void Awake()
     {
         moveInput.Enable();
@@ -43,8 +40,6 @@ public class TopDownPlayerMovement : MonoBehaviour
         atkAction.canceled -= ATKEnemy;
 
         heal.OnHeal += Heal;
-
-        treasureCount = 0;
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
@@ -115,8 +110,8 @@ public class TopDownPlayerMovement : MonoBehaviour
         HP = maxHP;
     }
 
-    public void IncreaseTreasureAmount()
-    {
-        treasureCount++;
-    }
+    // public void IncreaseTreasureAmount()
+    // {
+    //     treasureCount++;
+    // }
 }
