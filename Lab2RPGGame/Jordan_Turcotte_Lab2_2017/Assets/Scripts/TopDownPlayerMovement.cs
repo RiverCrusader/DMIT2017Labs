@@ -11,6 +11,7 @@ public class TopDownPlayerMovement : MonoBehaviour
     public event Action<Vector2> OnMove;
 
     //attacking
+    public event Action OnTakeDamage;
     public int HP;
     public int maxHP;
     public int ATK;
@@ -39,7 +40,8 @@ public class TopDownPlayerMovement : MonoBehaviour
         atkAction.performed += ATKEnemy;
         atkAction.canceled -= ATKEnemy;
 
-        heal.OnHeal += Heal;
+        // heal = GameObject.FindGameObjectWithTag("Heal").GetComponent<Heal>();
+        // if(heal!= null) heal.OnHeal += Heal;
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
@@ -104,10 +106,12 @@ public class TopDownPlayerMovement : MonoBehaviour
     public void TakeDamage(int dmg_)
     {
         HP -= (dmg_ - DEF);
+        OnTakeDamage?.Invoke();
     }
     public void Heal()
     {
         HP = maxHP;
+        OnTakeDamage?.Invoke();
     }
 
     // public void IncreaseTreasureAmount()

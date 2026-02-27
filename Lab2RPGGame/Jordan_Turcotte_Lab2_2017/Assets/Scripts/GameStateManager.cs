@@ -11,13 +11,16 @@ public class GameStateManager : MonoBehaviour
     private EnemySpawner spawner;
     private int currentMapID;
     private MapState currentMapState;
+    public TopDownPlayerMovement player;
 
-    public Heal heal;
+    private Heal heal;
 
     private void Awake()
     {
         Instance = this;
-        heal.OnHeal += ResetEnemies;
+        // heal = GameObject.FindGameObjectWithTag("Heal").GetComponent<Heal>();
+        // if(heal!= null) heal.OnHeal += ResetEnemies;
+        
     }
     private void Start()
     {
@@ -25,10 +28,13 @@ public class GameStateManager : MonoBehaviour
         {
             mapState.InitializeDictionary();
         }
+
+        InitializeMap(0);
     }
     public void InitializeMap(int mapID_)
     {
-       
+        player.HP = gameState.playerHP;
+
         foreach (MapState mapState in gameState.mapStates)
         {
             if(mapState.mapID == mapID_)
@@ -75,7 +81,23 @@ public class GameStateManager : MonoBehaviour
             }
         }
         
+        gameState.playerHP = player.HP;
+
     }
+
+    // [ContextMenu("Try Load")]
+    // public void LoadGameState()
+    // {
+    //     if (spawner != null)
+    //     {
+    //         List<Enemy> enemies = spawner.activeEnemies;
+    //         foreach (Enemy enemy in enemies)
+    //         {
+    //             enemy.HP = currentMapState.enemyDictionary[enemy.enemyID].currentHP;
+    //         }
+    //     }
+    //     player.HP = gameState.playerHP;
+    // }
 }
 
 [Serializable] 
@@ -107,5 +129,6 @@ public class EnemyState
 [Serializable]
 public class GameState
 {
+    public int playerHP;
     public List<MapState> mapStates;
 }

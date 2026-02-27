@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
@@ -40,6 +41,8 @@ public class MapNavigation : MonoBehaviour
         // move the player to the designated cell
 
         GameStateManager.Instance.SaveGameState();
+        currentMap.GetComponentInChildren<EnemySpawner>().ClearEnemies();
+
         Destroy(currentMap);
         //need to call enemyspawner clear enimes
 
@@ -49,14 +52,22 @@ public class MapNavigation : MonoBehaviour
         player.localScale = characterScale_;
         //need to convert from grid space to world space
         player.position = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[portalID].cell);
-        GameStateManager.Instance.InitializeMap(mapID);
+        StartCoroutine(InitializeNextMap(mapID));
 
         //GameStateManager.Instance.SpawnMap
 
         //trigger fade in and out
         OnMapEnter?.Invoke();
     }
+
+    private IEnumerator InitializeNextMap(int mapID)
+    {
+        yield return new WaitForEndOfFrame();
+        GameStateManager.Instance.InitializeMap(mapID);
+
+    }
 }
+
 
 public class MapData
 {

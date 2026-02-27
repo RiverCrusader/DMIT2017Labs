@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ranged_0.32
   m_EditorClassIdentifier: Assembly-CSharp::EnemySO
   prefab: {fileID: 4437251090782381654, guid: 58d078dc9484d5e4689db239491313cc, type: 3}
-  ATK: 3
-  DEF: 3
+  ATK: 10
+  DEF: 1
   enemyID: 1

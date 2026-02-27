@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: Assembly-CSharp::EnemySO
   prefab: {fileID: 2155458559901713933, guid: b8c389400ed36704fa381bdaa0ff0023, type: 3}
-  ATK: 6
-  DEF: 6
+  ATK: 8
+  DEF: 3
   enemyID: 3

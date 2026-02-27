@@ -192,7 +192,7 @@ MonoBehaviour:
   enemyName: Canpar
   enemyID: 1
   HP: 15
-  ATK: 6
+  ATK: 8
   DEF: 3
   attackDelay: 2
   sightline: {fileID: 7135940832569449884}

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ScreenFader : MonoBehaviour
 {
     public static ScreenFader instance;
+    public MapNavigation mapNavigation;
     [SerializeField] private Image screenFade;
 
     //make it so the player cannot move while this is occuring

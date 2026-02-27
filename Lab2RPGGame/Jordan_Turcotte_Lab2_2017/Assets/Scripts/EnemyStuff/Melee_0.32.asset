@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad367149cec2bcb4bbf6bd38c008dae4, type: 3}
   m_Name: Melee_0.32
   m_EditorClassIdentifier: Assembly-CSharp::EnemySO
-  prefab: {fileID: 6729886210199940905, guid: cb3575c58e105434b927517769a3cb3c, type: 3}
-  ATK: 6
-  DEF: 6
+  prefab: {fileID: 5502380120647399010, guid: e4e6b1f9c738eb2498bd03ff37ded93c, type: 3}
+  ATK: 8
+  DEF: 3
   enemyID: 5
