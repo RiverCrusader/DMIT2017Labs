@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         Enemy e = tmp.GetComponent<Enemy>();
         e.HP = hp;
         activeEnemies.Add(e);
-        e.enemyID = enemySO.enemyID;
+        e.enemyID = enemyID;
         e.ATK = enemySO.ATK;
         e.DEF = enemySO.DEF;
     }

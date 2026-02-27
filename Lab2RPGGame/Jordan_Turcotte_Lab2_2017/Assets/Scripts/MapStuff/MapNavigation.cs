@@ -34,7 +34,7 @@ public class MapNavigation : MonoBehaviour
         }
     }
 
-    public void GoToMap(int mapID, int portalID, Vector3 cellSize_, Vector3 characterScale_)
+    public void GoToMap(int mapID, int portalID)
     {
         // destroy the current map
         // instantiate the new map under the corresponding parent
@@ -48,8 +48,8 @@ public class MapNavigation : MonoBehaviour
 
         currentMap = Instantiate(mapDictionary[mapID].prefab, mapParent);
         Grid g = mapParent.GetComponent<Grid>();
-        g.cellSize = cellSize_;
-        player.localScale = characterScale_;
+        // g.cellSize = cellSize_;
+        // player.localScale = characterScale_;
         //need to convert from grid space to world space
         player.position = g.GetCellCenterWorld(mapDictionary[mapID].entryPoints[portalID].cell);
         StartCoroutine(InitializeNextMap(mapID));
