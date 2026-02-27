@@ -576,60 +576,48 @@ MonoBehaviour:
     mapStates:
     - mapID: 0
       enemyStates:
-      - enemyInstanceID: 0
-        enemyTypeID: 1
+      - enemyID: 0
         currentHP: 10
         maxHP: 10
-      - enemyInstanceID: 1
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 15
         maxHP: 15
-      - enemyInstanceID: 2
-        enemyTypeID: 1
+      - enemyID: 0
         currentHP: 10
         maxHP: 10
-      - enemyInstanceID: 3
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 15
         maxHP: 15
     - mapID: 1
       enemyStates:
-      - enemyInstanceID: 0
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 10
         maxHP: 10
-      - enemyInstanceID: 0
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 15
         maxHP: 15
     - mapID: 2
       enemyStates:
-      - enemyInstanceID: 0
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 15
         maxHP: 15
-      - enemyInstanceID: 0
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 15
         maxHP: 15
     - mapID: 3
       enemyStates: []
     - mapID: 4
       enemyStates:
-      - enemyInstanceID: 0
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 10
         maxHP: 10
-      - enemyInstanceID: 0
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 15
         maxHP: 15
-      - enemyInstanceID: 0
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 10
         maxHP: 10
-      - enemyInstanceID: 0
-        enemyTypeID: 0
+      - enemyID: 0
         currentHP: 15
         maxHP: 15
   mapParent: {fileID: 1502424786}
