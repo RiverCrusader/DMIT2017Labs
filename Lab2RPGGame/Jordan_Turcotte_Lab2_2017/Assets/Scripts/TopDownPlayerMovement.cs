@@ -27,6 +27,7 @@ public class TopDownPlayerMovement : MonoBehaviour
     public float atkDuration;
     private float atkTimer;
 
+    public float treasureCount;
 
     void Awake()
     {
@@ -42,6 +43,8 @@ public class TopDownPlayerMovement : MonoBehaviour
         atkAction.canceled -= ATKEnemy;
 
         heal.OnHeal += Heal;
+
+        treasureCount = 0;
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
@@ -110,5 +113,10 @@ public class TopDownPlayerMovement : MonoBehaviour
     public void Heal()
     {
         HP = maxHP;
+    }
+
+    public void IncreaseTreasureAmount()
+    {
+        treasureCount++;
     }
 }

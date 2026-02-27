@@ -89,8 +89,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4125298011854754078}
   - component: {fileID: 960041021370784689}
-  - component: {fileID: 5289469472092644070}
   - component: {fileID: 6742637501732271941}
+  - component: {fileID: 5289469472092644070}
   - component: {fileID: 371631765140591246}
   - component: {fileID: 5266895397026567715}
   m_Layer: 0
@@ -177,20 +177,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &5289469472092644070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2155458559901713933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01fe8faa419444d45a0a92baeafdbc41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AIMovement
-  range: 0.5
-  moveSpeed: 4
 --- !u!114 &6742637501732271941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,8 +199,23 @@ MonoBehaviour:
   attackRange: {fileID: 1269633430547025653}
   playerPosition: {x: 0, y: 0}
   patrolRange: {x: 5, y: 5}
-  projectilePrefab: {fileID: 2392121457538837379, guid: a7b2aad5b6f02a845a11d506ab9d861e, type: 3}
-  projectileSpawnLocation: {fileID: 4720813155980119214}
+  Aim: {fileID: 4720813155980119214}
+  melee: {fileID: 8838034589209700833}
+  atkDuration: 0.3
+--- !u!114 &5289469472092644070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2155458559901713933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fe8faa419444d45a0a92baeafdbc41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIMovement
+  range: 0.5
+  moveSpeed: 2
 --- !u!50 &371631765140591246
 Rigidbody2D:
   serializedVersion: 5
@@ -241,7 +242,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5266895397026567715
 BoxCollider2D:
   m_ObjectHideFlags: 0

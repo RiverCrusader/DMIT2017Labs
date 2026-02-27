@@ -77,7 +77,7 @@ public abstract class Enemy : MonoBehaviour
         aIMovement.InitalizeMovement(playerPosition);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (attackRange.CircleOverlapCheck())
         {
@@ -100,6 +100,7 @@ public abstract class Enemy : MonoBehaviour
             Patrol();
             patroling = true;
         }
+        
     }
 
     public void StartAttackCoroutine()

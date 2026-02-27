@@ -15,7 +15,9 @@ public class InteractionController : MonoBehaviour
     {
         InitializeDictionary();
         animationController = GetComponent<PlayerAnimation>();
+        
         animationController.OnAnimationStateUpdate += UpdateInteractionCollider;
+
         interact.Enable();
         interact.performed += Interact;
     }

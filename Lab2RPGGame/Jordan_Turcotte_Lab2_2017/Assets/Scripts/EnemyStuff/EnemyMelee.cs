@@ -6,7 +6,7 @@ public class EnemyMelee : MonoBehaviour
 
     void Awake()
     {
-        damage = GetComponentInParent<TopDownPlayerMovement>().ATK;
+        damage = GetComponentInParent<MeleeEnemy>().ATK;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
