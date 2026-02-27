@@ -1,11 +1,12 @@
 {
+    "playerHP": 148,
     "mapStates": [
         {
             "mapID": 0,
             "enemyStates": [
                 {
                     "enemyID": 0,
-                    "currentHP": 2,
+                    "currentHP": 10,
                     "maxHP": 10
                 },
                 {
@@ -20,7 +21,7 @@
                 },
                 {
                     "enemyID": 3,
-                    "currentHP": 9,
+                    "currentHP": 15,
                     "maxHP": 15
                 }
             ]

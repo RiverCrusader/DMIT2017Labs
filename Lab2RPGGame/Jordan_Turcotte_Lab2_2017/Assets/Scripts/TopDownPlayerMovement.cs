@@ -42,6 +42,8 @@ public class TopDownPlayerMovement : MonoBehaviour
 
         // heal = GameObject.FindGameObjectWithTag("Heal").GetComponent<Heal>();
         // if(heal!= null) heal.OnHeal += Heal;
+
+        HP = maxHP;
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
@@ -113,9 +115,4 @@ public class TopDownPlayerMovement : MonoBehaviour
         HP = maxHP;
         OnTakeDamage?.Invoke();
     }
-
-    // public void IncreaseTreasureAmount()
-    // {
-    //     treasureCount++;
-    // }
 }

@@ -27,18 +27,24 @@ public class GameStateManager : MonoBehaviour
     }
     private void Start()
     {
+        saveLoadData.LoadData();
+
         foreach(MapState mapState in gameState.mapStates)
         {
             mapState.InitializeDictionary();
         }
-        saveLoadData.LoadData();
-
+        
         InitializeMap(0);
     }
     public void InitializeMap(int mapID_)
     {
         saveLoadData.SaveData(); // Save previous map data
-        saveLoadData.LoadData(); // load all map data and the new stuff
+
+        foreach(MapState mapState in gameState.mapStates)
+        {
+            mapState.InitializeDictionary();
+        }
+
         player.HP = gameState.playerHP;
 
         foreach (MapState mapState in gameState.mapStates)
@@ -84,7 +90,6 @@ public class GameStateManager : MonoBehaviour
             {
                 currentMapState.enemyDictionary[enemy.enemyID].currentHP = enemy.HP;
                 Debug.Log(currentMapState.enemyDictionary[enemy.enemyID].currentHP);
-            
             }
         }
         

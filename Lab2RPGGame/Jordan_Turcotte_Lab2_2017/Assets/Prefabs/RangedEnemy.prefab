@@ -158,7 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangedEnemy
   enemyName: Dave
-  enemyID: 0
+  enemyInstanceID: 3
+  enemyTypeID: 1
   HP: 15
   ATK: 5
   DEF: 2

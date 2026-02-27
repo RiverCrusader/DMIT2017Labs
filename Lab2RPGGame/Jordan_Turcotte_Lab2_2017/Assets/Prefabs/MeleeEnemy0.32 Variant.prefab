@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2177170491934246354, guid: d4a59da170d453f45bd7e4b37785f9bd, type: 3}
+      propertyPath: enemyInstanceID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6795314119798617242, guid: d4a59da170d453f45bd7e4b37785f9bd, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy0.32 Variant
