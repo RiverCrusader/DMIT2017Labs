@@ -35,7 +35,8 @@ public class SaveLoadData : MonoBehaviour
 
         else
         {
-            Debug.LogError("Save file not found");
+            //SaveData();
+            Debug.Log("Save file not found");
         }
     }
 }

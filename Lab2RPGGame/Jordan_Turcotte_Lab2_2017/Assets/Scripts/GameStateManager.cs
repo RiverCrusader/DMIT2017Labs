@@ -12,12 +12,15 @@ public class GameStateManager : MonoBehaviour
     private int currentMapID;
     private MapState currentMapState;
     public TopDownPlayerMovement player;
+    private SaveLoadData saveLoadData;
 
     private Heal heal;
 
     private void Awake()
     {
         Instance = this;
+
+        saveLoadData = GetComponent<SaveLoadData>();
         // heal = GameObject.FindGameObjectWithTag("Heal").GetComponent<Heal>();
         // if(heal!= null) heal.OnHeal += ResetEnemies;
         
@@ -28,11 +31,14 @@ public class GameStateManager : MonoBehaviour
         {
             mapState.InitializeDictionary();
         }
+        saveLoadData.LoadData();
 
         InitializeMap(0);
     }
     public void InitializeMap(int mapID_)
     {
+        saveLoadData.SaveData(); // Save previous map data
+        saveLoadData.LoadData(); // load all map data and the new stuff
         player.HP = gameState.playerHP;
 
         foreach (MapState mapState in gameState.mapStates)
@@ -65,6 +71,7 @@ public class GameStateManager : MonoBehaviour
                 e.currentHP = e.maxHP;
             }
         }
+        saveLoadData.SaveData();
     }
 
     [ContextMenu("Try Save")]
@@ -83,6 +90,7 @@ public class GameStateManager : MonoBehaviour
         
         gameState.playerHP = player.HP;
 
+        saveLoadData.SaveData();
     }
 
     // [ContextMenu("Try Load")]
