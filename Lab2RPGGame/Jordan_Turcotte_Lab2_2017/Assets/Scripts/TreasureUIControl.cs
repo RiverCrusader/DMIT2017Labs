@@ -5,14 +5,14 @@ public class TreasureUIControl : MonoBehaviour
 {
     public int treasureCount;
     public TMP_Text goldAmount;
-    private Chest chest;
+    public Chest chest;
 
     public TMP_Text HP, maxHP;
     public TopDownPlayerMovement player;
 
     void Awake()
     {
-        chest = GameObject.FindGameObjectWithTag("TreasureChest").GetComponent<Chest>();
+        // chest = GameObject.FindGameObjectWithTag("TreasureChest").GetComponent<Chest>();
 
         if(chest != null) chest.OnChestOpen += IncreaseTreasureAmount;
 
@@ -22,7 +22,7 @@ public class TreasureUIControl : MonoBehaviour
     }
     public void IncreaseTreasureAmount()
     {
-        treasureCount++;
+        treasureCount += 10;
         goldAmount.text = $"{treasureCount}";
     }
     

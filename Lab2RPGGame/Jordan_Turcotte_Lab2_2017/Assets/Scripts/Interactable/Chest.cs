@@ -9,5 +9,6 @@ public class Chest : MonoBehaviour
     public void OpenChest()
     {
         if(!hasBeenOpened) OnChestOpen?.Invoke();
+        hasBeenOpened = true;
     }
 }

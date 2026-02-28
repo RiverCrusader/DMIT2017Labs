@@ -14,15 +14,16 @@ public class GameStateManager : MonoBehaviour
     public TopDownPlayerMovement player;
     private SaveLoadData saveLoadData;
 
-    private Heal heal;
+    public Heal heal;
 
     private void Awake()
     {
         Instance = this;
 
         saveLoadData = GetComponent<SaveLoadData>();
+        
         // heal = GameObject.FindGameObjectWithTag("Heal").GetComponent<Heal>();
-        // if(heal!= null) heal.OnHeal += ResetEnemies;
+        if(heal!= null) heal.OnHeal += ResetEnemies;
         
     }
     private void Start()

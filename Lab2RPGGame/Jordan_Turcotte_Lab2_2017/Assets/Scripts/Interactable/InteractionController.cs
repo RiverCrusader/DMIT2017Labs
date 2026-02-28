@@ -25,7 +25,8 @@ public class InteractionController : MonoBehaviour
     public void Interact(InputAction.CallbackContext c)
     {
         if (targetInteractable == null) return;
-        targetInteractable.GetComponent<Treasure>().Interact();
+        if(targetInteractable.CompareTag("TreasureChest")) targetInteractable.GetComponent<Treasure>().Interact();
+        if(targetInteractable.CompareTag("Bed")) targetInteractable.GetComponent<Bed>().Interact();
     }
     public void InitializeDictionary()
     {

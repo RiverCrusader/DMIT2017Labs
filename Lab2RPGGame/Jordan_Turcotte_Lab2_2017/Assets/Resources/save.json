@@ -46,12 +46,12 @@
             "enemyStates": [
                 {
                     "enemyID": 0,
-                    "currentHP": 11,
+                    "currentHP": 15,
                     "maxHP": 15
                 },
                 {
                     "enemyID": 1,
-                    "currentHP": 9,
+                    "currentHP": 15,
                     "maxHP": 15
                 }
             ]

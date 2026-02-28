@@ -16,7 +16,7 @@ public class TopDownPlayerMovement : MonoBehaviour
     public int maxHP;
     public int ATK;
     public int DEF;
-    private Heal heal;
+    public Heal heal;
 
     public InputAction atkAction;
 
@@ -27,6 +27,7 @@ public class TopDownPlayerMovement : MonoBehaviour
     private bool isAttacking = false;
     public float atkDuration;
     private float atkTimer;
+    
     void Awake()
     {
         moveInput.Enable();
@@ -41,7 +42,7 @@ public class TopDownPlayerMovement : MonoBehaviour
         atkAction.canceled -= ATKEnemy;
 
         // heal = GameObject.FindGameObjectWithTag("Heal").GetComponent<Heal>();
-        // if(heal!= null) heal.OnHeal += Heal;
+        if(heal != null) heal.OnHeal += Heal;
 
         HP = maxHP;
     }
