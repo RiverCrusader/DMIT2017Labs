@@ -9,11 +9,13 @@ public class GameStateManager : MonoBehaviour
     public GameState gameState;
     public Transform mapParent;
     private EnemySpawner spawner;
+    private Treasure treasure;
     private int currentMapID;
     private MapState currentMapState;
+
+    public TreasureUIControl treasureUIControl;
     public TopDownPlayerMovement player;
     private SaveLoadData saveLoadData;
-
     public Heal heal;
 
     private void Awake()
@@ -21,9 +23,10 @@ public class GameStateManager : MonoBehaviour
         Instance = this;
 
         saveLoadData = GetComponent<SaveLoadData>();
-        
+
         // heal = GameObject.FindGameObjectWithTag("Heal").GetComponent<Heal>();
         if(heal!= null) heal.OnHeal += ResetEnemies;
+        
         
     }
     private void Start()
@@ -39,7 +42,7 @@ public class GameStateManager : MonoBehaviour
     }
     public void InitializeMap(int mapID_)
     {
-        saveLoadData.SaveData(); // Save previous map data
+        saveLoadData.LoadData(); // Load appropriate map data
 
         foreach(MapState mapState in gameState.mapStates)
         {
@@ -47,6 +50,8 @@ public class GameStateManager : MonoBehaviour
         }
 
         player.HP = gameState.playerHP;
+        treasureUIControl.treasureCount = gameState.PlayerGold;
+        treasureUIControl.SetUIOnLoad();
 
         foreach (MapState mapState in gameState.mapStates)
         {
@@ -54,6 +59,10 @@ public class GameStateManager : MonoBehaviour
             {
                 currentMapState = mapState;
                 BeginEnemySpawn(currentMapState);
+
+                treasure = mapParent.GetComponentInChildren<Treasure>();
+                treasure.hasBeenOpened = currentMapState.treasureCollected;
+                
                 break;
             }
         }
@@ -62,6 +71,7 @@ public class GameStateManager : MonoBehaviour
     public void BeginEnemySpawn(MapState map)
     {
         spawner = mapParent.GetComponentInChildren<EnemySpawner>();
+
         foreach(EnemyState enemy in map.enemyStates)
         {
 
@@ -80,6 +90,10 @@ public class GameStateManager : MonoBehaviour
         }
         saveLoadData.SaveData();
     }
+    public void ChestOpened()
+    {
+        currentMapState.treasureCollected = true;
+    }
 
     [ContextMenu("Try Save")]
     public void SaveGameState()
@@ -94,7 +108,10 @@ public class GameStateManager : MonoBehaviour
             }
         }
         
+        currentMapState.treasureCollected = mapParent.GetComponentInChildren<Treasure>().hasBeenOpened;
         gameState.playerHP = player.HP;
+        gameState.PlayerGold = treasureUIControl.treasureCount;
+        
 
         saveLoadData.SaveData();
     }
@@ -119,6 +136,7 @@ public class MapState
 {
     public int mapID;
     public List<EnemyState> enemyStates;
+    public bool treasureCollected = false;
     [NonSerialized] public Dictionary<int, EnemyState> enemyDictionary; 
 
     public void InitializeDictionary()
@@ -144,5 +162,6 @@ public class EnemyState
 public class GameState
 {
     public int playerHP;
+    public int PlayerGold;
     public List<MapState> mapStates;
 }

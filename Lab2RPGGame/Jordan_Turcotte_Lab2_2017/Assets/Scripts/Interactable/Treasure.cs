@@ -5,6 +5,7 @@ public class Treasure : MonoBehaviour, IInteractableObject
 {
     public UnityEvent OnInteract;
     private Chest chest;
+    public bool hasBeenOpened = false;
     void Awake()
     {
         chest = GameObject.FindGameObjectWithTag("Gold").GetComponent<Chest>();
@@ -18,6 +19,7 @@ public class Treasure : MonoBehaviour, IInteractableObject
 
     public void OpenChest()
     {
-        chest.OpenChest();
+        if(!hasBeenOpened) chest.OpenChest();
+        hasBeenOpened = true;
     }
 }

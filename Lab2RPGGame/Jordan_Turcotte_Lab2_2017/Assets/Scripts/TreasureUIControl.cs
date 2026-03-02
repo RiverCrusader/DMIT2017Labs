@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TreasureUIControl : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class TreasureUIControl : MonoBehaviour
         maxHP.text = $"/ {player.maxHP} HP";
         
     }
+    public void SetUIOnLoad()
+    {
+        treasureCount = GameStateManager.Instance.gameState.PlayerGold;
+        goldAmount.text = $"{treasureCount}";
+        HP.text = $"{player.HP}";
+    }
     public void IncreaseTreasureAmount()
     {
         treasureCount += 10;
@@ -29,5 +36,10 @@ public class TreasureUIControl : MonoBehaviour
     public void AdjustHP()
     {
         HP.text = $"{player.HP}";
+    }
+    public void SaveAndExit()
+    {
+        GameStateManager.Instance.SaveGameState();
+        Application.Quit();
     }
 }

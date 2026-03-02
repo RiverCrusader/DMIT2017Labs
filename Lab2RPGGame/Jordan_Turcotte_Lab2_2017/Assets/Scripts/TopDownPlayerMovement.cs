@@ -22,6 +22,7 @@ public class TopDownPlayerMovement : MonoBehaviour
 
     public Transform Aim;
     public bool isWalking = false;
+
     //melee
     public GameObject melee;
     private bool isAttacking = false;

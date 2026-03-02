@@ -124,8 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapPortal
   targetMap: 0
   targetEntryPoint: 3
-  cellSizeType: {x: 1, y: 1, z: 1}
-  scale: {x: 4, y: 4, z: 4}
 --- !u!1 &2175870684508615473
 GameObject:
   m_ObjectHideFlags: 0
@@ -251568,6 +251566,7 @@ Transform:
   - {fileID: 3736247058672319814}
   - {fileID: 6713963188125180901}
   - {fileID: 4536392590476344106}
+  - {fileID: 3091671437054530875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8747283403433253317
@@ -251656,3 +251655,65 @@ MonoBehaviour:
   - {fileID: 4173316772842360785}
   activeEnemies: []
   enemyDatabase: {fileID: 11400000, guid: 492bd1a977a5a7c4c87807ff3f32c3b9, type: 2}
+--- !u!1001 &6417926783961689958
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5496581453841089351}
+    m_Modifications:
+    - target: {fileID: 8248598284409260059, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_Name
+      value: Treasure_Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.96795
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -43.426826
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+--- !u!4 &3091671437054530875 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8356108749917338205, guid: e7e71b781a05d674ba56a0fff48b5e95, type: 3}
+  m_PrefabInstance: {fileID: 6417926783961689958}
+  m_PrefabAsset: {fileID: 0}
