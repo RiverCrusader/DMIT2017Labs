@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 1603665648}
   - component: {fileID: 1603665652}
   m_Layer: 5
-  m_Name: Treasure_CANVAS
+  m_Name: Inventory_and_hp_CANVAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
