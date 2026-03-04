@@ -4,7 +4,7 @@ using UnityEngine;
 public class ArmorItemSO : InventoryDataSO
 {
     public int armorRating;
-    public ArmorType armorType;
+    public EquipSlot equipSlot;
 
     public override InventoryItemData CreateRuntimeData()
     {
@@ -12,10 +12,11 @@ public class ArmorItemSO : InventoryDataSO
     }
 }
 
-public enum ArmorType
+public enum EquipSlot
 {
     HEAD,
     CHEST,
+    ARMS,
     LEGS,
-    BOOTS
+    WEAPON
 }
