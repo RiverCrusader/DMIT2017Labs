@@ -16,4 +16,4 @@ MonoBehaviour:
   flavourText: A chest plate made from Goremagala scales
   icon: {fileID: -702136708, guid: 8b92d9182552c044096ad5abcacfeb1d, type: 3}
   armorRating: 25
-  armorType: 1
+  equipSlot: 1

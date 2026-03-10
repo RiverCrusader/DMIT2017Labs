@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -6,8 +7,9 @@ public class InventoryManager : MonoBehaviour
     public Dictionary<InventoryDataSO, InventoryItemData> inventory = new Dictionary<InventoryDataSO, InventoryItemData>();
 
     public InventoryDataSO[] tmp;
+    public event Action<Dictionary<InventoryDataSO, InventoryItemData>> onInventoryUpdate;
 
-    private void Start()
+    private void OnEnable()
     {
        foreach(InventoryDataSO item in tmp)
         {
@@ -21,19 +23,20 @@ public class InventoryManager : MonoBehaviour
         {
             inventory[_itemToAdd].quantity++;
         }
+        onInventoryUpdate?.Invoke(inventory);
     }
 
     public void RemoveItem(InventoryDataSO _itemToRemove)
     {
-        // if(inventory.TryGetValue(_itemToRemove, out ))
-        // {
-            
-        // }
-        if(inventory[_itemToRemove].quantity > 1)
+        if(inventory.TryGetValue(_itemToRemove, out InventoryItemData data))
         {
-            inventory[_itemToRemove].quantity--;
-            return;
+            if (inventory[_itemToRemove].quantity > 1)
+            {
+                inventory[_itemToRemove].quantity--;
+
+            }
+            else inventory.Remove(_itemToRemove);
         }
-        inventory.Remove(_itemToRemove);
+        onInventoryUpdate?.Invoke(inventory);
     }
 }

@@ -1,43 +1,53 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class InventoryContainer : MonoBehaviour
 {
-   private Dictionary<InventoryDataSO, InventoryItemData> containerInventory = new();
-
-   public List<InventoryDataSO> sartingInventory = new();
-   public InventoryManager playerInventory;
-
-    void Start()
+    public Dictionary<InventoryDataSO, InventoryItemData> containerInventory = new();
+    public List<InventoryDataSO> startingInventory = new();
+    public InventoryManager playerInventoryManager;
+    public event Action<InventoryContainer> onContainerUpdated;
+    private void Start()
     {
-        foreach(InventoryDataSO item in sartingInventory)
+        foreach(InventoryDataSO item in startingInventory)
         {
-            if(!containerInventory.TryAdd(item, item.CreateRuntimeData()))
+            if (!containerInventory.TryAdd(item, item.CreateRuntimeData()))
             {
                 containerInventory[item].quantity++;
+
             }
         }
+
     }
 
-    public void AddItemToContainer(InventoryDataSO _itemToAdd)
+    public void AddItemToContainer(InventoryDataSO itemToAdd_) // call this when you pick up an item
     {
-        playerInventory.RemoveItem(_itemToAdd);
-        if(!containerInventory.TryAdd(_itemToAdd, _itemToAdd.CreateRuntimeData()))
+        playerInventoryManager.RemoveItem(itemToAdd_);
+        if (!containerInventory.TryAdd(itemToAdd_, itemToAdd_.CreateRuntimeData()))
         {
-            containerInventory[_itemToAdd].quantity++;
+            containerInventory[itemToAdd_].quantity++;
+
         }
+        onContainerUpdated?.Invoke(this);
+       // onInventoryUpdate?.Invoke(inventory);
     }
 
-    public void AddItemToPlayerInventory(InventoryDataSO _itemToRemove)
+    public void AddItemToPlayerInventory(InventoryDataSO itemToAdd_) // call this when you lose an item
     {
-        if(containerInventory[_itemToRemove].quantity > 1)
+        if (containerInventory.TryGetValue(itemToAdd_, out InventoryItemData data))
         {
-            containerInventory[_itemToRemove].quantity--;
-            return;
-        }
-        else containerInventory.Remove(_itemToRemove);
+            if (containerInventory[itemToAdd_].quantity > 1)
+            {
+                containerInventory[itemToAdd_].quantity--;
 
-        playerInventory.AddItem(_itemToRemove);
-        
+            }
+            else containerInventory.Remove(itemToAdd_);
+        }
+        playerInventoryManager.AddItem(itemToAdd_);
+        onContainerUpdated?.Invoke(this);
+       // onInventoryUpdate?.Invoke(inventory);
+
+
     }
 }
