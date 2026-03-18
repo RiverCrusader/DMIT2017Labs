@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class TopDownPlayerMovement : MonoBehaviour
 {
     public InputAction moveInput;
+    public InputAction openInventory;
     private Vector2 moveDirection = Vector2.zero;
     public float moveSpeed;
 
@@ -28,6 +29,10 @@ public class TopDownPlayerMovement : MonoBehaviour
     private bool isAttacking = false;
     public float atkDuration;
     private float atkTimer;
+
+    //Inventory
+    public GameObject inventoryUI;
+    private bool isInventoryOpen;
     
     void Awake()
     {
@@ -46,6 +51,15 @@ public class TopDownPlayerMovement : MonoBehaviour
         if(heal != null) heal.OnHeal += Heal;
 
         HP = maxHP;
+
+
+        //Inventory
+        openInventory.Enable();
+
+        openInventory.performed += ToggleInventory;
+        openInventory.canceled -= ToggleInventory;
+
+        isInventoryOpen = false;
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
@@ -79,6 +93,10 @@ public class TopDownPlayerMovement : MonoBehaviour
         {
             CheckMeleeTimer();
         }
+
+        if(isInventoryOpen) inventoryUI.SetActive(true);
+        else inventoryUI.SetActive(false);
+        
     }
 
     
@@ -116,5 +134,10 @@ public class TopDownPlayerMovement : MonoBehaviour
     {
         HP = maxHP;
         OnTakeDamage?.Invoke();
+    }
+
+    public void ToggleInventory(InputAction.CallbackContext c)
+    {
+        isInventoryOpen = !isInventoryOpen;
     }
 }

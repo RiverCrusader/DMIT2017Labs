@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1897568270113201032}
   - component: {fileID: 8102136544062592963}
   - component: {fileID: 3516885347939355421}
+  - component: {fileID: 8014923470025322711}
   m_Layer: 0
   m_Name: Treasure_Chest
   m_TagString: TreasureChest
@@ -120,6 +121,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  hasBeenOpened: 0
 --- !u!61 &3516885347939355421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,3 +168,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.65}
   m_EdgeRadius: 0
+--- !u!114 &8014923470025322711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248598284409260059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfc362663b1db74c9fa18964962de98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryContainer
+  startingInventory: []
+  playerInventoryManager: {fileID: 0}

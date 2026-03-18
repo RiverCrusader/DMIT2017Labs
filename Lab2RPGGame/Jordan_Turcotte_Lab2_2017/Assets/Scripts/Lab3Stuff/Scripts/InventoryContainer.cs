@@ -8,6 +8,9 @@ public class InventoryContainer : MonoBehaviour
     public List<InventoryDataSO> startingInventory = new();
     public InventoryManager playerInventoryManager;
     public event Action<InventoryContainer> onContainerUpdated;
+    public event Action<InventoryContainer> onInventoryUpdate;
+    
+   
     private void Start()
     {
         foreach(InventoryDataSO item in startingInventory)
@@ -30,7 +33,8 @@ public class InventoryContainer : MonoBehaviour
 
         }
         onContainerUpdated?.Invoke(this);
-       // onInventoryUpdate?.Invoke(inventory);
+        
+        //onInventoryUpdate?.Invoke(inventory);
     }
 
     public void AddItemToPlayerInventory(InventoryDataSO itemToAdd_) // call this when you lose an item
@@ -46,7 +50,8 @@ public class InventoryContainer : MonoBehaviour
         }
         playerInventoryManager.AddItem(itemToAdd_);
         onContainerUpdated?.Invoke(this);
-       // onInventoryUpdate?.Invoke(inventory);
+
+        //onInventoryUpdate?.Invoke(inventory);
 
 
     }

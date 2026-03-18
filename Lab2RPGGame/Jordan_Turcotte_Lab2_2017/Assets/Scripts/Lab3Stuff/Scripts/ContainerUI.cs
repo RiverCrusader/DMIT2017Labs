@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ContainerUI : MonoBehaviour
 {
@@ -8,13 +9,28 @@ public class ContainerUI : MonoBehaviour
     public Transform inventoryParent;
     public Transform containerParent;
     private List<GameObject> uiButtons = new();
+    
+    public Canvas containerUI;
 
-    [Header("Debug")]
-    public InventoryContainer debugContainer;
+    private Treasure treasure;
+    
 
-    private void Start()
+    // [Header("Debug")]
+    // public InventoryContainer debugContainer;
+
+    // private void Start()
+    // {
+    //     //InitUI(debugContainer);
+        
+    // }
+    void Awake()
     {
-        InitUI(debugContainer);
+        containerUI.enabled = false;
+
+        treasure = GameObject.FindGameObjectWithTag("TreasureChest").GetComponent<Treasure>();
+        Debug.Log($" treasure - {treasure}");
+
+        treasure.onContainerOpen += InitUI;
     }
 
     public void InitUI(InventoryContainer container_)
@@ -35,6 +51,7 @@ public class ContainerUI : MonoBehaviour
             uiButtons.Add(tmp);
         }
         container_.onContainerUpdated += UpdateContainerUI;
+        containerUI.enabled = true;
     }
 
     public void UpdateContainerUI(InventoryContainer container_)
@@ -61,5 +78,10 @@ public class ContainerUI : MonoBehaviour
             uiButtons.Add(tmp);
         }
 
+    }
+
+    public void CloseUI()
+    {
+        containerUI.enabled = false;
     }
 }
