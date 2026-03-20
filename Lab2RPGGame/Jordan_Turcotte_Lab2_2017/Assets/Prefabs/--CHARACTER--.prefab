@@ -746,6 +746,24 @@ MonoBehaviour:
       m_Action: Move Input
       m_Flags: 8
     m_Flags: 0
+  openInventory:
+    m_Name: Open Inventory
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bf6ad7ac-8b8f-4691-8dea-1e98e6c19b2b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  closeContainer:
+    m_Name: Close Container
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a2b5566d-f783-47a6-9d15-a4e1fef92f40
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   moveSpeed: 3
   HP: 150
   maxHP: 150
@@ -773,6 +791,8 @@ MonoBehaviour:
   isWalking: 0
   melee: {fileID: 5671101238487461131}
   atkDuration: 0.3
+  inventoryUI: {fileID: 0}
+  containerUI: {fileID: 0}
 --- !u!114 &667998474583585482
 MonoBehaviour:
   m_ObjectHideFlags: 0

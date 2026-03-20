@@ -199,6 +199,7 @@ MonoBehaviour:
   attackRange: {fileID: 1269633430547025653}
   playerPosition: {x: 0, y: 0}
   patrolRange: {x: 5, y: 5}
+  monsterDrop: {fileID: 11400000, guid: 4ae74efc4033e474bb313b251e68404a, type: 2}
   Aim: {fileID: 4720813155980119214}
   melee: {fileID: 8838034589209700833}
   atkDuration: 0.3

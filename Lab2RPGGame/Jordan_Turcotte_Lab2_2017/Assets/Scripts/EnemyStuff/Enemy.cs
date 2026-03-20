@@ -25,6 +25,9 @@ public abstract class Enemy : MonoBehaviour
     private AIMovement aIMovement;
     private bool patroling;
 
+    private InventoryManager playerInventory;
+    public InventoryDataSO monsterDrop;
+
     private Coroutine attackCoroutine;
 
     private void Awake()
@@ -36,6 +39,8 @@ public abstract class Enemy : MonoBehaviour
         aIMovement.OnArrive += Patrol;
 
         startingPos = transform.position;
+
+        playerInventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
     }
 
     public void SetPlayerPosition(Vector2 pos_)
@@ -69,6 +74,7 @@ public abstract class Enemy : MonoBehaviour
     }
     public void Die()
     {
+        playerInventory.AddItem(monsterDrop);
         gameObject.SetActive(false);
     }
 

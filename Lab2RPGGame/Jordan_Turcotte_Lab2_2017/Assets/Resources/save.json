@@ -1,6 +1,6 @@
 {
     "playerHP": 150,
-    "PlayerGold": 10,
+    "PlayerGold": 0,
     "mapStates": [
         {
             "mapID": 0,
@@ -26,7 +26,7 @@
                     "maxHP": 15
                 }
             ],
-            "treasureCollected": true
+            "treasureCollected": false
         },
         {
             "mapID": 1,

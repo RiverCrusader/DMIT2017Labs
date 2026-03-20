@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class ContainerButton : MonoBehaviour
 {
     public TMP_Text itemName;
@@ -36,6 +37,7 @@ public class ContainerButton : MonoBehaviour
             inventoryContainer.AddItemToPlayerInventory(itemData.config);
             return;
         }
+        
         inventoryContainer.AddItemToContainer(itemData.config);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,7 @@ public class TopDownPlayerMovement : MonoBehaviour
 {
     public InputAction moveInput;
     public InputAction openInventory;
+    public InputAction closeContainer;
     private Vector2 moveDirection = Vector2.zero;
     public float moveSpeed;
 
@@ -33,6 +35,9 @@ public class TopDownPlayerMovement : MonoBehaviour
     //Inventory
     public GameObject inventoryUI;
     private bool isInventoryOpen;
+
+    //container
+    public GameObject containerUI;
     
     void Awake()
     {
@@ -60,6 +65,11 @@ public class TopDownPlayerMovement : MonoBehaviour
         openInventory.canceled -= ToggleInventory;
 
         isInventoryOpen = false;
+
+        closeContainer.Enable();
+
+        closeContainer.performed += CloseConatainer;
+        closeContainer.canceled += CloseConatainer;
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
@@ -139,5 +149,10 @@ public class TopDownPlayerMovement : MonoBehaviour
     public void ToggleInventory(InputAction.CallbackContext c)
     {
         isInventoryOpen = !isInventoryOpen;
+    }
+
+    public void CloseConatainer(InputAction.CallbackContext c)
+    {
+        containerUI.SetActive(false);
     }
 }

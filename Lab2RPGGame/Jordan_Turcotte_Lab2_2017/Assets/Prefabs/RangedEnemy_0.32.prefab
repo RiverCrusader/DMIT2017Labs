@@ -198,6 +198,7 @@ MonoBehaviour:
   attackRange: {fileID: 2181261765370531720}
   playerPosition: {x: 0, y: 0}
   patrolRange: {x: 10, y: 10}
+  monsterDrop: {fileID: 11400000, guid: 4ae74efc4033e474bb313b251e68404a, type: 2}
   projectilePrefab: {fileID: 4396063424556252340, guid: 042ad72343f3fe14ea9fb900ace1aa0a, type: 3}
   projectileSpawnLocation: {fileID: 4365567929526674208}
 --- !u!114 &5219676730624304450

@@ -35,6 +35,7 @@ public class ContainerUI : MonoBehaviour
 
     public void InitUI(InventoryContainer container_)
     {
+        containerUI.enabled = true;
         Dictionary<InventoryDataSO, InventoryItemData> inventoryRef = targetInventory.inventory;
         Dictionary<InventoryDataSO, InventoryItemData> containerRef = container_.containerInventory;
         foreach (InventoryItemData item in inventoryRef.Values)
@@ -51,7 +52,6 @@ public class ContainerUI : MonoBehaviour
             uiButtons.Add(tmp);
         }
         container_.onContainerUpdated += UpdateContainerUI;
-        containerUI.enabled = true;
     }
 
     public void UpdateContainerUI(InventoryContainer container_)
@@ -77,11 +77,11 @@ public class ContainerUI : MonoBehaviour
             tmp.GetComponent<ContainerButton>().InitializeButton(item, container_, true);
             uiButtons.Add(tmp);
         }
-
     }
 
     public void CloseUI()
     {
+        uiButtons.Clear();
         containerUI.enabled = false;
     }
 }

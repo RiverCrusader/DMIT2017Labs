@@ -18,10 +18,8 @@ public class InventoryContainer : MonoBehaviour
             if (!containerInventory.TryAdd(item, item.CreateRuntimeData()))
             {
                 containerInventory[item].quantity++;
-
             }
         }
-
     }
 
     public void AddItemToContainer(InventoryDataSO itemToAdd_) // call this when you pick up an item
@@ -32,6 +30,7 @@ public class InventoryContainer : MonoBehaviour
             containerInventory[itemToAdd_].quantity++;
 
         }
+
         onContainerUpdated?.Invoke(this);
         
         //onInventoryUpdate?.Invoke(inventory);
@@ -44,7 +43,6 @@ public class InventoryContainer : MonoBehaviour
             if (containerInventory[itemToAdd_].quantity > 1)
             {
                 containerInventory[itemToAdd_].quantity--;
-
             }
             else containerInventory.Remove(itemToAdd_);
         }

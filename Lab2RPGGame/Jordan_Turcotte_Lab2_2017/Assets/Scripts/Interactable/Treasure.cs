@@ -25,7 +25,9 @@ public class Treasure : MonoBehaviour, IInteractableObject
 
     public void OpenChest()
     {
-        if(!hasBeenOpened) chest.OpenChest();
+        if(hasBeenOpened) return;
+        
+        chest.OpenChest();
         onContainerOpen?.Invoke(container);
         hasBeenOpened = true;
     }

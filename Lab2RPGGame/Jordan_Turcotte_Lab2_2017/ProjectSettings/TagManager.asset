@@ -9,6 +9,7 @@ TagManager:
   - Gold
   - Bed
   - ContainerUI
+  - Inventory
   layers:
   - Default
   - TransparentFX
