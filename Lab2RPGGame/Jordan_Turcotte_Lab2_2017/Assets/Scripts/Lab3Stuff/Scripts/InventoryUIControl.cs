@@ -13,6 +13,7 @@ public class InventoryUIControl : MonoBehaviour
         InitUI();
         targetInventory.onInventoryUpdate += UpdateUI;
     }
+    
     [ContextMenu("Init UI")]
     public void InitUI()
     {

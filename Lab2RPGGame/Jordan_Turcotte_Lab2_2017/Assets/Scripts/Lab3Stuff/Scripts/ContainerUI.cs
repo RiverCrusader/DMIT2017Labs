@@ -38,6 +38,7 @@ public class ContainerUI : MonoBehaviour
         containerUI.enabled = true;
         Dictionary<InventoryDataSO, InventoryItemData> inventoryRef = targetInventory.inventory;
         Dictionary<InventoryDataSO, InventoryItemData> containerRef = container_.containerInventory;
+
         foreach (InventoryItemData item in inventoryRef.Values)
         {
             GameObject tmp = Instantiate(buttonPrefab, inventoryParent);
@@ -64,6 +65,7 @@ public class ContainerUI : MonoBehaviour
 
         Dictionary<InventoryDataSO, InventoryItemData> inventoryRef = targetInventory.inventory;
         Dictionary<InventoryDataSO, InventoryItemData> containerRef = container_.containerInventory;
+        
         foreach (InventoryItemData item in inventoryRef.Values)
         {
             GameObject tmp = Instantiate(buttonPrefab, inventoryParent);
