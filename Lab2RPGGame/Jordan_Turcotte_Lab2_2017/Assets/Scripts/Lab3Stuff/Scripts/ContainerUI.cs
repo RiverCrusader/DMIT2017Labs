@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class ContainerUI : MonoBehaviour
 {
@@ -35,6 +34,7 @@ public class ContainerUI : MonoBehaviour
 
     public void InitUI(InventoryContainer container_)
     {
+        
         containerUI.enabled = true;
         Dictionary<InventoryDataSO, InventoryItemData> inventoryRef = targetInventory.inventory;
         Dictionary<InventoryDataSO, InventoryItemData> containerRef = container_.containerInventory;

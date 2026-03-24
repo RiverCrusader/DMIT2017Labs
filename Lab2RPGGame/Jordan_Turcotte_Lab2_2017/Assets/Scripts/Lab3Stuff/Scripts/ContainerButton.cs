@@ -2,7 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
 public class ContainerButton : MonoBehaviour
 {
     public TMP_Text itemName;
@@ -24,10 +23,10 @@ public class ContainerButton : MonoBehaviour
         quantityDisplay.text = itemData.quantity.ToString();
         icon.sprite = itemData.icon;
 
-        GetComponent<Button>().onClick.AddListener(ButtonClick);
+        GetComponent<Button>().onClick.AddListener(ContainerButtonClick);
     }
 
-    public void ButtonClick()
+    public void ContainerButtonClick()
     {
         // InventoryContainer container;
         // container.AddItemToContainer(itemData.config);

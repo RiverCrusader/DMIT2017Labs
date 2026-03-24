@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class TopDownPlayerMovement : MonoBehaviour
 {
@@ -69,7 +70,7 @@ public class TopDownPlayerMovement : MonoBehaviour
         closeContainer.Enable();
 
         closeContainer.performed += CloseConatainer;
-        closeContainer.canceled += CloseConatainer;
+        closeContainer.canceled -= CloseConatainer;
     }
 
     public void GetMoveVector(InputAction.CallbackContext c)
@@ -104,8 +105,16 @@ public class TopDownPlayerMovement : MonoBehaviour
             CheckMeleeTimer();
         }
 
-        if(isInventoryOpen) inventoryUI.SetActive(true);
-        else inventoryUI.SetActive(false);
+        if (isInventoryOpen)
+        {
+            inventoryUI.SetActive(true);
+            inventoryUI.GetComponentInParent<GraphicRaycaster>().enabled = true;
+        } 
+        else 
+        {
+            inventoryUI.SetActive(false);
+            inventoryUI.GetComponentInParent<GraphicRaycaster>().enabled = false;
+        }
         
     }
 

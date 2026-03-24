@@ -25,10 +25,13 @@ public class Treasure : MonoBehaviour, IInteractableObject
 
     public void OpenChest()
     {
-        if(hasBeenOpened) return;
-        
-        chest.OpenChest();
+        //Can always see the loot but just not get the gold
         onContainerOpen?.Invoke(container);
-        hasBeenOpened = true;
+
+        if(!hasBeenOpened)
+        {
+            chest.OpenChest();
+            hasBeenOpened = true;
+        }
     }
 }
